@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         TextView tvUsername = findViewById(R.id.tvUsernameHome);
         CardView cvStartTest = findViewById(R.id.cvStartTest);
 

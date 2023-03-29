@@ -9,14 +9,25 @@
         android:icon="@drawable/app_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:screenOrientation="portrait"
         android:theme="@style/Theme.LearnToDrive"
         tools:targetApi="31">
+        <activity
+            android:name=".Activity_splash_screen"
+            android:noHistory="true"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".ResultActivity"
             android:exported="false" />
         <activity android:name=".TestOptionActivity" />
         <activity android:name=".Signs.TrafficSignsActivity" />
-        <activity android:name=".Signs.FirstLevelActivity"
+        <activity
+            android:name=".Signs.FirstLevelActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".Signs.SecondLevelActivity" />
         <activity
