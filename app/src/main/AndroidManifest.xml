@@ -16,7 +16,8 @@
             android:exported="false" />
         <activity android:name=".TestOptionActivity" />
         <activity android:name=".Signs.TrafficSignsActivity" />
-        <activity android:name=".Signs.FirstLevelActivity" />
+        <activity android:name=".Signs.FirstLevelActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".Signs.SecondLevelActivity" />
         <activity
             android:name=".MainActivity"

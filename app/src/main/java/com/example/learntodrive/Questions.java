@@ -1,5 +1,7 @@
 package com.example.learntodrive;
 
+import android.graphics.Color;
+
 public class Questions {
 
     private String Questions1[] = {

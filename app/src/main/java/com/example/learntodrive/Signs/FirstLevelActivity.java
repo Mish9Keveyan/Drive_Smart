@@ -1,11 +1,16 @@
 package com.example.learntodrive.Signs;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,17 +29,20 @@ import com.example.learntodrive.ResultActivity;
 
 public class FirstLevelActivity extends AppCompatActivity {
 
+    final RadioButton[] rb1 = new RadioButton[3];
     private ImageView mTestImage;
 
     private String mAnswer;
+    private int correctAnswerIndex;
+
     private int mScore = 0;
     private int mTestNum = 1;
     private int QuestionNum = 0;
-
     private TextView mQuestionView;
     private TextView mTestNumView;
 
     private Questions Questions1 = new Questions();
+    String Coorectanswers1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +51,7 @@ public class FirstLevelActivity extends AppCompatActivity {
 
 
         mQuestionView = findViewById(R.id.question_textview);
-        mTestNumView = findViewById(R.id.quiznum_textview);
+        mTestNumView = findViewById(R.id.quiznum);
 
         updateQuestion();
 
@@ -56,7 +64,14 @@ public class FirstLevelActivity extends AppCompatActivity {
                     if(Questions1.getCoorectAnswers1(QuestionNum).equals(mAnswer)){
                         mScore++;
                         displayToastCorrectAnswer();
+                        rb1[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
                     }else {
+                        rb1[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
+                        for (int i = 0; i < rb1.length; i++) {
+                            if (!Questions1.getCoorectAnswers1(QuestionNum).equals(rb1[i].getText())) {
+                                rb1[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
+                            }
+                        }
                         displayToastWrongAnswer();
                     }
                 }
@@ -112,6 +127,7 @@ public class FirstLevelActivity extends AppCompatActivity {
         LinearLayout answer_layout = findViewById(R.id.answers_layout);
         answer_layout.removeAllViews();
         mAnswer="";
+        findViewById(R.id.button_next).setBackgroundColor(findViewById(R.id.button_next).getContext().getResources().getColor(R.color.bg_color));
 
         mTestNumView.setText(mTestNum + "/" + String.valueOf(Questions1.getLenght1()));
         mQuestionView.setText(Questions1.getQuestions1(QuestionNum));
@@ -137,21 +153,26 @@ public class FirstLevelActivity extends AppCompatActivity {
         mTestImage.setImageResource(getResources().getIdentifier(img,"drawable",getPackageName()));
     }
 
-    private void showRadioButtonAnswers(int qnum){
+    private int showRadioButtonAnswers(int qnum){
+
+
+
         final LinearLayout answerLayout = findViewById(R.id.answers_layout);
 
         RadioGroup rg = new RadioGroup(this);
         rg.setOrientation(RadioGroup.VERTICAL);
 
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
 
         rg.setLayoutParams(lp);
         rg.setPadding(90,0,0,0);
 
-        final RadioButton[] rb1 = new RadioButton[3];
+
 
         for (int i = 0; i <= 2; i++) {
+
             rb1[i] = new RadioButton(this);
             rb1[i].setText(Questions1.getChoice1(qnum) [i]);
             rb1[i].setTextColor(Color.BLACK);
@@ -159,18 +180,22 @@ public class FirstLevelActivity extends AppCompatActivity {
             rb1[i].setTextSize(20);
             rb1[i].setId(i);
             rb1[i].setWidth(1000);
-
             rg.addView(rb1[i]);
-
+            if (Questions1.getCoorectAnswers1(qnum).equals(Questions1.getChoice1(qnum)[i])) {
+                correctAnswerIndex = i;
+            }
         }
+
       rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
           @Override
           public void onCheckedChanged(RadioGroup radioGroup, int Id) {
-
               mAnswer = Questions1.getChoice1(QuestionNum)[Id];
+
           }
       });
         answerLayout.addView(rg);
-    }
 
+
+        return qnum;
+    }
 }
