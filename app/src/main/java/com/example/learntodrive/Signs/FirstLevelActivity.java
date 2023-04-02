@@ -176,7 +176,7 @@ public class FirstLevelActivity extends AppCompatActivity {
             rb1[i] = new RadioButton(this);
             rb1[i].setText(Questions1.getChoice1(qnum) [i]);
             rb1[i].setTextColor(Color.BLACK);
-            rb1[i].setPadding(10,50,8,50);
+            rb1[i].setPadding(10,66,8,66);
             rb1[i].setTextSize(20);
             rb1[i].setId(i);
             rb1[i].setWidth(1000);
