@@ -21,6 +21,8 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView toggleLoginSignUpTextView;
     private TextView tvYes;
 
+
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,13 @@ public class RegisterActivity extends AppCompatActivity {
         tvYes = findViewById(R.id.tvYes);
 
 
+        SignUpButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                validateEmail();
+            }
+        });
 
     }
     private boolean validateEmail(){
@@ -44,9 +53,11 @@ public class RegisterActivity extends AppCompatActivity {
             textInputEmail.setError("Please, enter your Email");
             return false;
         }else {
+            textInputEmail.setError("");
             return true;
         }
     }
+
 
     public void toggleLoginSignUp(View view) {
     }
