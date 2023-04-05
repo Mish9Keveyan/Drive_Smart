@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "769262720934",
+    "project_id": "drive-smart-b1101",
+    "storage_bucket": "drive-smart-b1101.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769262720934:android:6a55ac466100082fc3a167",
+        "android_client_info": {
+          "package_name": "com.example.learntodrive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769262720934-8f5ba6gcbghkrcki2lc4qe9jdjigc61b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtbZznMU2KiC-zmUUQQVKcz_5JfMybgGI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769262720934-8f5ba6gcbghkrcki2lc4qe9jdjigc61b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
