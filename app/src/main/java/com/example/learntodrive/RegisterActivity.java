@@ -1,16 +1,23 @@
 package com.example.learntodrive;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -23,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView tvYes;
 
     private boolean isLoginActivity;
+    private FirebaseAuth mAuth;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -37,6 +45,8 @@ public class RegisterActivity extends AppCompatActivity {
         SignUpButton = findViewById(R.id.SignUpButton);
         toggleLoginSignUpTextView = findViewById(R.id.toggleLoginSignUpTextView);
         tvYes = findViewById(R.id.tvYes);
+
+        mAuth = FirebaseAuth.getInstance();
 
 
     }
@@ -122,11 +132,36 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void SignUpUser(View view) {
-        if (validateEmail() & validateName() & validatePassword() & validateConfirmPassword()){
-            String nameInput = textInputName.getEditText().getText().toString().trim();
-            Toast.makeText(this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-            finish();
+
+        String email = textInputEmail.getEditText().getText().toString().trim();
+        String password = textInputPassword.getEditText().getText().toString().trim();
+
+        if (!isLoginActivity) {
+            if (validateEmail() & validateName() & validatePassword() & validateConfirmPassword()) {
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    String nameInput = textInputName.getEditText().getText().toString().trim();
+                                    Toast.makeText(RegisterActivity.this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
+                                    Log.d("signup", "createUserWithEmail:success");
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                } else {
+
+                                    Log.w("signup", "createUserWithEmail:failure", task.getException());
+                                    Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                String nameInput = textInputName.getEditText().getText().toString().trim();
+                Toast.makeText(this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                finish();
+            }else {
+                //login
+            }
         }
     }
     public static int countAtSymbols(String inputString) {

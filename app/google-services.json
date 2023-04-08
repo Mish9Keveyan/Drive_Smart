@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:769262720934:android:6a55ac466100082fc3a167",
+        "mobilesdk_app_id": "1:769262720934:android:493dc857d6aab1a7c3a167",
         "android_client_info": {
           "package_name": "com.example.learntodrive"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "769262720934-5auvi4vucr7ss3tvsucau80uj734ues8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.learntodrive",
+            "certificate_hash": "e17e77a9b72b86168c670ec4c834d5abef14877b"
+          }
+        },
         {
           "client_id": "769262720934-8f5ba6gcbghkrcki2lc4qe9jdjigc61b.apps.googleusercontent.com",
           "client_type": 3
