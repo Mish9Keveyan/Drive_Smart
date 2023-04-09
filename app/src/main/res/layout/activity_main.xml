@@ -30,16 +30,18 @@
         app:layout_constraintStart_toStartOf="@+id/tvHome"
         app:layout_constraintTop_toBottomOf="@+id/tvHome" />
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/home_bg"
         android:elevation="4dp"
-        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvUsernameHome" >
+        app:layout_constraintTop_toTopOf="@+id/tvUsernameHome">
 
         <TextView
             android:id="@+id/textView"
@@ -66,6 +68,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="64dp"
@@ -77,6 +80,7 @@
                     app:srcCompat="@drawable/tests"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="6dp" />
+
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
@@ -95,5 +99,17 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/account_icon"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.850"
+        app:layout_constraintStart_toEndOf="@+id/tvUsernameHome"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.700"
+        app:srcCompat="@drawable/account_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

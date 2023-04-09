@@ -92,8 +92,7 @@ public class RegisterActivity extends AppCompatActivity {
             return true;
         }
     }
-
-
+    
     private boolean validateConfirmPassword(){
         String passwordInput = textInputPassword.getEditText().getText().toString().trim();
         String confirmpasswordInput = textInputConfirmPassword.getEditText().getText().toString().trim();
@@ -113,8 +112,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
-
-
     public void toggleLoginSignUp(View view) {
         if (isLoginActivity){
             isLoginActivity = false;
@@ -130,12 +127,10 @@ public class RegisterActivity extends AppCompatActivity {
             SignUpButton.setText("Bойти");
         }
     }
-
     public void SignUpUser(View view) {
 
         String email = textInputEmail.getEditText().getText().toString().trim();
         String password = textInputPassword.getEditText().getText().toString().trim();
-
         if (!isLoginActivity) {
             if (validateEmail() & validateName() & validatePassword() & validateConfirmPassword()) {
                 mAuth.createUserWithEmailAndPassword(email, password)
@@ -147,8 +142,9 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.makeText(RegisterActivity.this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
                                     Log.d("signup", "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    startActivity(new Intent(RegisterActivity.this,AccountActivity.class));
+                                    finish();
                                 } else {
-
                                     Log.w("signup", "createUserWithEmail:failure", task.getException());
                                     Toast.makeText(RegisterActivity.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
@@ -157,10 +153,25 @@ public class RegisterActivity extends AppCompatActivity {
                         });
                 String nameInput = textInputName.getEditText().getText().toString().trim();
                 Toast.makeText(this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
-                finish();
-            }else {
-                //login
+            }
+        } else {
+            if (validateEmail() & validatePassword()) {
+                mAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d("login", "signInWithEmail:success");
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    startActivity(new Intent(RegisterActivity.this,AccountActivity.class));
+                                    finish();
+                                } else {
+                                    Log.w("login", "signInWithEmail:failure", task.getException());
+                                    Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
         }
     }
@@ -173,7 +184,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
         return count;
     }
-
     public boolean checkStringDoubleDot(String input){
         return input.contains("..");
     }
@@ -181,4 +191,3 @@ public class RegisterActivity extends AppCompatActivity {
         return input.contains(" ");
     }
 }
-
