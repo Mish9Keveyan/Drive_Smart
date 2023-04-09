@@ -92,7 +92,7 @@ public class RegisterActivity extends AppCompatActivity {
             return true;
         }
     }
-    
+
     private boolean validateConfirmPassword(){
         String passwordInput = textInputPassword.getEditText().getText().toString().trim();
         String confirmpasswordInput = textInputConfirmPassword.getEditText().getText().toString().trim();
@@ -167,7 +167,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     finish();
                                 } else {
                                     Log.w("login", "signInWithEmail:failure", task.getException());
-                                    Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                    Toast.makeText(RegisterActivity.this, "Неверный email или пароль",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }

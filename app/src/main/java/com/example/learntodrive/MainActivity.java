@@ -9,11 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tvUsername = findViewById(R.id.tvUsernameHome);
         CardView cvStartTest = findViewById(R.id.cvStartTest);
+        CardView cvLogout = findViewById(R.id.cvLogout);
         ImageView imageView = findViewById(R.id.account_icon);
+        mAuth = FirebaseAuth.getInstance();
+
         cvStartTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,8 +40,24 @@ public class MainActivity extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,RegisterActivity.class));
+                if (mAuth.getCurrentUser() == null) {
+                    startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                }else {
+                    startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                }
             }
         });
+        cvLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(MainActivity.this, "Вы успешно вышли из аккаунта", Toast.LENGTH_LONG).show();
+            }
+        });
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String userName = currentUser.getDisplayName();
+            tvUsername.setText(userName);
+        }
     }
 }
