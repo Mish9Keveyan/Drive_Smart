@@ -18,6 +18,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -31,6 +33,9 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean isLoginActivity;
     private FirebaseAuth mAuth;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -142,6 +147,11 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.makeText(RegisterActivity.this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
                                     Log.d("signup", "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
+
+                                    database = FirebaseDatabase.getInstance();
+                                    myRef = database.getReference("test");
+                                    myRef.child("users").child(user.getUid()).child("username").setValue(nameInput);
+
                                     startActivity(new Intent(RegisterActivity.this,AccountActivity.class));
                                     finish();
                                 } else {

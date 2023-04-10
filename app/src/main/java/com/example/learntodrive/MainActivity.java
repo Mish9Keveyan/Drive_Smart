@@ -50,14 +50,12 @@ public class MainActivity extends AppCompatActivity {
         cvLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (mAuth.getCurrentUser() != null) {
+                    Toast.makeText(MainActivity.this, "Вы успешно вышли из аккаунта", Toast.LENGTH_LONG).show();
+                }
                 FirebaseAuth.getInstance().signOut();
-                Toast.makeText(MainActivity.this, "Вы успешно вышли из аккаунта", Toast.LENGTH_LONG).show();
             }
         });
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            String userName = currentUser.getDisplayName();
-            tvUsername.setText(userName);
-        }
+
     }
 }
