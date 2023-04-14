@@ -10,4 +10,5 @@
     <string name="sign_up">Создать Аккаунт</string>
     <string name="Yes">Да</string>
     <string name="toggleLoginSignUpTextView">Уже есть аккаунт?</string>
+    <string name="or">- or -</string>
 </resources>
