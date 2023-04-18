@@ -277,8 +277,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     if (!task.isSuccessful()){
                                         Log.e("firebase","Error getting data", task.getException());
                                     }else {
-                                         Tools.NAME = String.valueOf(task.getResult().child("username").getValue());
-                                         Log.d("firebase","Tools.NAME - " + Tools.NAME);
+                                        Tools.NAME = String.valueOf(task.getResult().child("username").getValue());
+                                        Log.d("firebase","Tools.NAME - " + Tools.NAME);
                                     }
                                 }
                             });
@@ -300,15 +300,15 @@ public class RegisterActivity extends AppCompatActivity {
 
         if(user != null){
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(RegisterActivity.this, AccountActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        },200);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(RegisterActivity.this, AccountActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            },200);
         }
     }
 }
