@@ -8,13 +8,26 @@
     android:background="@color/bg_color"
     tools:context=".AccountActivity">
 
+    <ImageView
+        android:id="@+id/imageViewQuizOption"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/signUpLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow"
+        app:tint="@color/white" />
+
 
     <TextView
         android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25sp"
-        android:text="Your Profile"
+        android:text="Ваш профиль"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/signUpLayout"
@@ -35,29 +48,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
-            android:layout_width="125dp"
-            android:layout_height="114dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="197dp"
             app:layout_constraintBottom_toTopOf="@+id/textView6"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/three" />
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:src="@drawable/three"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/bg_color" />
+
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/bg_color"
             android:text="Misha Keveyan"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/bg_color"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            android:layout_marginTop="15dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
