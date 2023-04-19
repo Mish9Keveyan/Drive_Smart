@@ -78,6 +78,12 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         facebook = findViewById(R.id.facebook);
+        facebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signIn();
+            }
+        });
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))

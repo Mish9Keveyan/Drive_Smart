@@ -24,7 +24,7 @@
             android:name=".Activity_splash_screen"
             android:exported="true"
             android:noHistory="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,12 +34,12 @@
         <activity
             android:name=".ResultActivity"
             android:exported="false"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity android:name=".TestOptionActivity" />
         <activity android:name=".Signs.TrafficSignsActivity" />
         <activity
             android:name=".Signs.FirstLevelActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="fullSensor" />
         <activity android:name=".Signs.SecondLevelActivity" />
         <activity
             android:name=".MainActivity"
