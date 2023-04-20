@@ -8,6 +8,19 @@
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
+    <ImageView
+        android:id="@+id/imageViewQuizOption"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/signUpLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arrow"
+        app:tint="@color/white" />
+
     <TextView
         android:id="@+id/signUp"
         android:layout_width="wrap_content"

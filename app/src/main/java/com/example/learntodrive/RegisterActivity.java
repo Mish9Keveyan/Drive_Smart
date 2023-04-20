@@ -81,7 +81,14 @@ public class RegisterActivity extends AppCompatActivity {
         facebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn();
+                startActivity(new Intent(RegisterActivity.this, AccountActivity.class));
+            }
+        });
+
+        findViewById(R.id.imageViewQuizOption).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 
