@@ -6,6 +6,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -65,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         textInputEmail = findViewById(R.id.textInputEmail);
         textInputName = findViewById(R.id.textInputName);
@@ -120,7 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (checkStringSpace(emailInput)) {
             textInputEmail.setError("Please, enter valid Email");
             return false;
-        } else {
+        }  else {
             textInputEmail.setError("");
             return true;
         }
@@ -182,6 +184,8 @@ public class RegisterActivity extends AppCompatActivity {
             toggleLoginSignUpTextView.setText("Создать новый аккаунт?");
             SignUpButton.setText("Bойти");
         }
+        textInputEmail.getEditText().setText("");
+        textInputPassword.getEditText().setText("");
     }
     public void SignUpUser(View view) {
 
@@ -202,7 +206,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     database = FirebaseDatabase.getInstance();
                                     myRef = database.getReference("test");
                                     myRef.child("users").child(user.getUid()).child("username").setValue(nameInput);
-
+                                    Toast.makeText(RegisterActivity.this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(RegisterActivity.this,AccountActivity.class));
                                     finish();
                                 } else {
@@ -212,8 +216,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 }
                             }
                         });
-                String nameInput = textInputName.getEditText().getText().toString().trim();
-                Toast.makeText(this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
+
             }
         } else {
             if (validateEmail() & validatePassword()) {
@@ -312,7 +315,6 @@ public class RegisterActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
 
         if(user != null){
-
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
