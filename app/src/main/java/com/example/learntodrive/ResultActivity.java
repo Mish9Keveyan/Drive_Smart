@@ -3,10 +3,14 @@ package com.example.learntodrive;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.learntodrive.Signs.FirstLevelActivity;
+import com.example.learntodrive.Signs.TrafficSignsActivity;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -37,9 +41,13 @@ public class ResultActivity extends AppCompatActivity {
 
     }
 
+
     public void restartGame(View view) {
 
+        startActivity(new Intent(ResultActivity.this, FirstLevelActivity.class));
+        finish();
+    }
+    public void goToMenu(View view) {
         super.onBackPressed();
-
     }
 }

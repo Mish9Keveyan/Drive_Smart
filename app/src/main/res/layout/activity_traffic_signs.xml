@@ -43,8 +43,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintLayout1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/gray">
 
             <ImageView
                 android:id="@+id/imageView11"
@@ -56,11 +58,25 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/one" />
 
+            <ImageView
+                android:id="@+id/lockLevel1"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="5dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/password_icon"
+                app:tint="@color/white"/>
+
+
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/newDrive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
+                android:textColor="@color/white"
                 android:text="Водитель-новичок"
                 style="@style/categoryHeadingTextStyle"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView11"
@@ -82,8 +98,10 @@
         app:layout_constraintTop_toBottomOf="@+id/cvLevel1">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ConstraintLayout2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/gray">
 
             <ImageView
                 android:id="@+id/imageView12"
@@ -94,13 +112,23 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/two" />
+            <ImageView
+                android:id="@+id/lockLevel2"
+                android:layout_width= "45dp"
+                android:layout_height="45dp"
+                android:layout_margin="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/password_icon"
+                app:tint="@color/white"/>
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/smartDrive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:text="Опытный водитель"
+                android:textColor="@color/white"
                 style="@style/categoryHeadingTextStyle"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView12"
                 app:layout_constraintStart_toEndOf="@+id/imageView12"
@@ -121,7 +149,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/gray">
 
             <ImageView
                 android:id="@+id/imageView13"
@@ -133,11 +162,22 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/three" />
 
+            <ImageView
+                android:id="@+id/lockLevel3"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_margin="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/password_icon"
+                app:tint="@color/white" />
+
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/truckDrive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
+                android:textColor="@color/white"
                 android:text="Дальнобойщик"
                 style="@style/categoryHeadingTextStyle"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView13"

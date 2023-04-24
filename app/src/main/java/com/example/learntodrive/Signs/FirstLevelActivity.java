@@ -2,6 +2,7 @@ package com.example.learntodrive.Signs;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -81,6 +82,16 @@ public class FirstLevelActivity extends AppCompatActivity {
 
                 if (QuestionNum == Questions1.getLenght1() - 1){
 
+                    SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+                    final int level = save.getInt("Level",1);
+                    if (level > 1) {
+                        //jhjh
+                    }else {
+                        SharedPreferences.Editor editor = save.edit();
+                        editor.putInt("Level",2);
+                        editor.commit();
+                    }
+
                     Intent intent_result = new Intent(FirstLevelActivity.this, ResultActivity.class);
                     intent_result.putExtra("totalQuestions",Questions1.getLenght1());
                     intent_result.putExtra("finalScore",mScore);
@@ -89,6 +100,7 @@ public class FirstLevelActivity extends AppCompatActivity {
                     QuestionNum = 0;
                     mScore = 0;
                     mTestNum = 1;
+                    finish();
                 }else {
 
                     QuestionNum++;
