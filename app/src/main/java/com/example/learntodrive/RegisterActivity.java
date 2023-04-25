@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
 
-    private ImageView google,facebook;
+    private ImageView google;
 
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -78,14 +78,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-
-        facebook = findViewById(R.id.facebook);
-        facebook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(RegisterActivity.this, AccountActivity.class));
-            }
-        });
 
         findViewById(R.id.imageViewQuizOption).setOnClickListener(new View.OnClickListener() {
             @Override

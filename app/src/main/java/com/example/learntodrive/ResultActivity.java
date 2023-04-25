@@ -48,6 +48,15 @@ public class ResultActivity extends AppCompatActivity {
         finish();
     }
     public void goToMenu(View view) {
+        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+        final int level = save.getInt("Level",1);
+        if (level > 1) {
+            //jhjh
+        }else {
+            SharedPreferences.Editor editor = save.edit();
+            editor.putInt("Level",2);
+            editor.commit();
+        }
         super.onBackPressed();
     }
 }

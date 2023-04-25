@@ -64,11 +64,11 @@ public class TrafficSignsActivity extends AppCompatActivity {
                 }
             }
         });
-//        if (level >= 2) {
-//            constraintLayout2.setBackgroundColor(Color.WHITE);
-//            cv2.setTextColor(Color.BLACK);
-//            lockLevel2.setVisibility(View.GONE);
-//        }
+        if (level >= 2) {
+            constraintLayout2.setBackgroundColor(Color.WHITE);
+            cv2.setTextColor(Color.BLACK);
+            lockLevel2.setVisibility(View.GONE);
+        }
         cvLevel2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -82,15 +82,6 @@ public class FirstLevelActivity extends AppCompatActivity {
 
                 if (QuestionNum == Questions1.getLenght1() - 1){
 
-                    SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
-                    final int level = save.getInt("Level",1);
-                    if (level > 1) {
-                        //jhjh
-                    }else {
-                        SharedPreferences.Editor editor = save.edit();
-                        editor.putInt("Level",2);
-                        editor.commit();
-                    }
 
                     Intent intent_result = new Intent(FirstLevelActivity.this, ResultActivity.class);
                     intent_result.putExtra("totalQuestions",Questions1.getLenght1());

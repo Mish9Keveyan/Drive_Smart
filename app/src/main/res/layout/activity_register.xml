@@ -159,18 +159,10 @@
 
             <ImageView
                 android:id="@+id/google"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="140dp"
+                android:layout_height="42dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/google" />
-
-            <ImageView
-                android:id="@+id/facebook"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_margin="15dp"
-                android:background="@drawable/facebook" />
-
         </LinearLayout>
 
 
