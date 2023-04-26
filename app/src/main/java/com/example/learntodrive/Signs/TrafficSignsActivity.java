@@ -18,6 +18,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.learntodrive.Questions;
 import com.example.learntodrive.R;
+import com.example.learntodrive.TestOptionActivity;
 
 public class TrafficSignsActivity extends AppCompatActivity {
 
@@ -53,14 +54,18 @@ public class TrafficSignsActivity extends AppCompatActivity {
                 finish();
             }
         });
+        findViewById(R.id.refreshIcon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
 
         cvLevel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (level >= 1) {
                     startActivity(new Intent(TrafficSignsActivity.this, FirstLevelActivity.class));
-                } else {
-                    Toast.makeText(TrafficSignsActivity.this, "", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -18,6 +18,8 @@ public class ResultActivity extends AppCompatActivity {
     TextView txtPercentText;
     private int totalQuestions;
     private int finalScore;
+    private int PercentScore1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,7 @@ public class ResultActivity extends AppCompatActivity {
         totalQuestions = intent.getIntExtra("totalQuestions",0);
         finalScore = intent.getIntExtra("finalScore",0);
 
-        int PercentScore1 = finalScore * 100/ totalQuestions;
+        PercentScore1 = finalScore * 100/ totalQuestions;
 
         txtPercentText.setText(String.format("%s%%",Integer.toString(Integer.valueOf(PercentScore1))));
 
@@ -50,11 +52,9 @@ public class ResultActivity extends AppCompatActivity {
     public void goToMenu(View view) {
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         final int level = save.getInt("Level",1);
-        if (level > 1) {
-            //jhjh
-        }else {
+        if (!(level > 1) && PercentScore1 > 50) {
             SharedPreferences.Editor editor = save.edit();
-            editor.putInt("Level",2);
+            editor.putInt("Level", 2);
             editor.commit();
         }
         super.onBackPressed();
