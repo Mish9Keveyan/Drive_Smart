@@ -1,18 +1,12 @@
 package com.example.learntodrive.Signs;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learntodrive.Questions;
 import com.example.learntodrive.R;
-import com.example.learntodrive.ResultActivity;
 
 public class FirstLevelActivity extends AppCompatActivity {
 
@@ -83,7 +76,7 @@ public class FirstLevelActivity extends AppCompatActivity {
                 if (QuestionNum == Questions1.getLenght1() - 1){
 
 
-                    Intent intent_result = new Intent(FirstLevelActivity.this, ResultActivity.class);
+                    Intent intent_result = new Intent(FirstLevelActivity.this, ResultActivity1.class);
                     intent_result.putExtra("totalQuestions",Questions1.getLenght1());
                     intent_result.putExtra("finalScore",mScore);
                     startActivity(intent_result);

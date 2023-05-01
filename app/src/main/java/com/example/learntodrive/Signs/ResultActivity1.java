@@ -1,4 +1,4 @@
-package com.example.learntodrive;
+package com.example.learntodrive.Signs;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,10 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.learntodrive.Signs.FirstLevelActivity;
-import com.example.learntodrive.Signs.TrafficSignsActivity;
+import com.example.learntodrive.R;
 
-public class ResultActivity extends AppCompatActivity {
+public class ResultActivity1 extends AppCompatActivity {
 
     TextView txtCorrectText;
     TextView txtPercentText;
@@ -46,13 +45,13 @@ public class ResultActivity extends AppCompatActivity {
 
     public void restartGame(View view) {
 
-        startActivity(new Intent(ResultActivity.this, FirstLevelActivity.class));
+        startActivity(new Intent(ResultActivity1.this, FirstLevelActivity.class));
         finish();
     }
     public void goToMenu(View view) {
         SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
         final int level = save.getInt("Level",1);
-        if (!(level > 1) && PercentScore1 > 50) {
+        if (!(level > 1) && PercentScore1 > 69) {
             SharedPreferences.Editor editor = save.edit();
             editor.putInt("Level", 2);
             editor.commit();

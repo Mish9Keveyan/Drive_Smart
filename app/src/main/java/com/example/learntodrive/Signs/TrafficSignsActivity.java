@@ -35,12 +35,15 @@ public class TrafficSignsActivity extends AppCompatActivity {
         CardView cvLevel1 = findViewById(R.id.cvLevel1);
         CardView cvLevel2 = findViewById(R.id.cvLevel2);
         CardView cvLevel3 = findViewById(R.id.cvLevel3);
+        CardView cvLevel4 = findViewById(R.id.cvLevel4);
         TextView cv1 = findViewById(R.id.newDrive);
         TextView cv2 = findViewById(R.id.smartDrive);
         TextView cv3 = findViewById(R.id.truckDrive);
+        TextView cv4 = findViewById(R.id.drivingInstructor);
         ImageView lockLevel1 = findViewById(R.id.lockLevel1);
         ImageView lockLevel2 = findViewById(R.id.lockLevel2);
         ImageView lockLevel3 = findViewById(R.id.lockLevel3);
+        ImageView lockLevel4 = findViewById(R.id.lockLevel4);
         ConstraintLayout constraintLayout1 = findViewById(R.id.ConstraintLayout1);
         ConstraintLayout constraintLayout2 = findViewById(R.id.ConstraintLayout2);
 
@@ -85,6 +88,12 @@ public class TrafficSignsActivity extends AppCompatActivity {
             }
         });
         cvLevel3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
+            }
+        });
+        cvLevel4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();

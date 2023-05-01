@@ -8,9 +8,9 @@
     tools:context=".Activity_splash_screen">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="277dp"
-        android:layout_height="487dp"
+        android:id="@+id/appLogo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
