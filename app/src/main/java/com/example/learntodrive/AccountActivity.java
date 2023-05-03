@@ -2,6 +2,7 @@ package com.example.learntodrive;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,8 @@ public class AccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        ImageView trophy = findViewById(R.id.trophy_icon);
+
 
         findViewById(R.id.imageViewQuizOption).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -23,13 +26,10 @@ public class AccountActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        ImageView trophy = findViewById(R.id.trophy_icon);
-        
         trophy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AccountActivity.this, "пока недоступно", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(AccountActivity.this, Trophies.class));
             }
         });
     }

@@ -77,7 +77,6 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/tests"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="6dp" />
 
@@ -120,8 +119,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logout" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:gravity="center"
@@ -165,8 +163,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/three" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -199,6 +196,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/account_icon" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/account_icon"
+        app:layout_constraintEnd_toStartOf="@+id/account_icon"
+        app:layout_constraintStart_toEndOf="@+id/tvHome"
+        app:layout_constraintTop_toTopOf="@+id/account_icon" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

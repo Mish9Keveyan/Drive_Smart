@@ -4,7 +4,9 @@ package com.example.learntodrive;
 import static java.lang.Thread.sleep;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -51,36 +53,36 @@ public class TestOptionActivity extends AppCompatActivity {
         Crossroads = findViewById(R.id.imageView11);
         FirstHelp = findViewById(R.id.imageView12);
         Balance = findViewById(R.id.imageView13);
-        progressBar2 = findViewById(R.id.progressBar2);
+        ProgressBar progressBar = findViewById(R.id.progressBar2);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+            }
+        }, 1200);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference Image1 = database.getReference("Traffic Signs");
-        DatabaseReference Image2 = database.getReference("Crossroads");
-        DatabaseReference Image3 = database.getReference("FirstHelp");
-        DatabaseReference Image4 = database.getReference("Balance");
+        DatabaseReference Traffic_Signs68 = database.getReference("Traffic Signs");
+        DatabaseReference Crossroads69 = database.getReference("Crossroads");
+        DatabaseReference FirstHelp70 = database.getReference("FirstHelp");
+        DatabaseReference Balance71 = database.getReference("Balance");
 
-        Image1.addValueEventListener(new ValueEventListener() {
+        Traffic_Signs68.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (progressBar2 != null){
-
-                    progressBar2.setVisibility(View.GONE);
-                    String value = snapshot.getValue(String.class);
-                    Picasso.get().load(value).into(TrafficSigns);
-                }
-            }
+                String value = snapshot.getValue(String.class);
+                Picasso.get().load(value).into(TrafficSigns);
+        }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-        Image2.addValueEventListener(new ValueEventListener() {
+        Crossroads69.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (progressBar2 != null){
-                    progressBar2.setVisibility(View.GONE);
-                }
                 String value = snapshot.getValue(String.class);
                 Picasso.get().load(value).into(Crossroads);
             }
@@ -90,12 +92,9 @@ public class TestOptionActivity extends AppCompatActivity {
 
             }
         });
-        Image3.addValueEventListener(new ValueEventListener() {
+        FirstHelp70.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (progressBar2 != null){
-                    progressBar2.setVisibility(View.GONE);
-                }
                 String value = snapshot.getValue(String.class);
                 Picasso.get().load(value).into(FirstHelp);
             }
@@ -105,12 +104,9 @@ public class TestOptionActivity extends AppCompatActivity {
 
             }
         });
-        Image4.addValueEventListener(new ValueEventListener() {
+        Balance71.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (progressBar2 != null){
-                    progressBar2.setVisibility(View.GONE);
-                }
                 String value = snapshot.getValue(String.class);
                 Picasso.get().load(value).into(Balance);
             }
