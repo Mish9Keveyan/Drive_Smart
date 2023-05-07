@@ -15,6 +15,10 @@ public class SecondLevelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signs_1);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        findViewById(R.id.button_next).setVisibility(View.GONE);
+        findViewById(R.id.progressBar).setVisibility(View.GONE);
+
+
         findViewById(R.id.imageViewQuizOption).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

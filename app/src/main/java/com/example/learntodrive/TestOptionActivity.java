@@ -38,7 +38,6 @@ public class TestOptionActivity extends AppCompatActivity {
     ImageView Crossroads;
     ImageView FirstHelp;
     ImageView Balance;
-    ProgressBar progressBar2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +73,6 @@ public class TestOptionActivity extends AppCompatActivity {
                 String value = snapshot.getValue(String.class);
                 Picasso.get().load(value).into(TrafficSigns);
         }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

@@ -16,11 +16,17 @@ import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learntodrive.Questions;
 import com.example.learntodrive.R;
+import com.squareup.picasso.Picasso;
 
 public class FirstLevelActivity extends AppCompatActivity {
 
@@ -45,6 +51,7 @@ public class FirstLevelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signs_1);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         mQuestionView = findViewById(R.id.question_textview);
         mTestNumView = findViewById(R.id.quiznum);
@@ -56,50 +63,59 @@ public class FirstLevelActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (Questions1.getType1(QuestionNum) == "radiobutton"){
-                    if(Questions1.getCoorectAnswers1(QuestionNum).equals(mAnswer)){
-                        mScore++;
-                        displayToastCorrectAnswer();
-                        rb1[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                    }else {
-                        rb1[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                        for (int i = 0; i < rb1.length; i++) {
-                            if (!Questions1.getCoorectAnswers1(QuestionNum).equals(rb1[i].getText())) {
-                                rb1[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
+                boolean isAnyRadioButtonNotEmpty = false;
+                for (RadioButton rb : rb1) {
+                    if (rb.isChecked()) {
+                        isAnyRadioButtonNotEmpty = true;
+                        break;
+                    }
+                }
+                if (isAnyRadioButtonNotEmpty) {
+                    if (Questions1.getType1(QuestionNum) == "radiobutton") {
+                        if (Questions1.getCoorectAnswers1(QuestionNum).equals(mAnswer)) {
+                            mScore++;
+                            displayToastCorrectAnswer();
+                            rb1[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
+                        } else {
+                            rb1[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
+                            for (int i = 0; i < rb1.length; i++) {
+                                if (!Questions1.getCoorectAnswers1(QuestionNum).equals(rb1[i].getText())) {
+                                    rb1[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
+                                }
                             }
+                            displayToastWrongAnswer();
                         }
-                        displayToastWrongAnswer();
                     }
-                }
-                SystemClock.sleep(1000);
+                    SystemClock.sleep(1000);
 
-                if (QuestionNum == Questions1.getLenght1() - 1){
+                    if (QuestionNum == Questions1.getLenght1() - 1) {
 
 
-                    Intent intent_result = new Intent(FirstLevelActivity.this, ResultActivity1.class);
-                    intent_result.putExtra("totalQuestions",Questions1.getLenght1());
-                    intent_result.putExtra("finalScore",mScore);
-                    startActivity(intent_result);
+                        Intent intent_result = new Intent(FirstLevelActivity.this, ResultActivity1.class);
+                        intent_result.putExtra("totalQuestions", Questions1.getLenght1());
+                        intent_result.putExtra("finalScore", mScore);
+                        startActivity(intent_result);
 
-                    QuestionNum = 0;
-                    mScore = 0;
-                    mTestNum = 1;
-                    finish();
+                        QuestionNum = 0;
+                        mScore = 0;
+                        mTestNum = 1;
+                        finish();
+                    } else {
+
+                        QuestionNum++;
+                        mTestNum++;
+                    }
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            updateQuestion();
+                        }
+                    }, 1000);
                 }else {
-
-                    QuestionNum++;
-                    mTestNum++;
+                    Toast.makeText(FirstLevelActivity.this, "Выберите правильный ответ", Toast.LENGTH_SHORT).show();
                 }
-
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        updateQuestion();
-                    }
-                },1000);
-
-
             }
         });
 
@@ -146,14 +162,12 @@ public class FirstLevelActivity extends AppCompatActivity {
     private void showMainImage(){
         mTestImage = findViewById(R.id.question_image);
 
-        String img = Questions1.getImages1(QuestionNum);
+        String imgUrl = Questions1.getImages1(QuestionNum);
 
-        mTestImage.setImageResource(getResources().getIdentifier(img,"drawable",getPackageName()));
+        Picasso.get().load(imgUrl).into(mTestImage);
     }
 
     private int showRadioButtonAnswers(int qnum){
-
-
 
         final LinearLayout answerLayout = findViewById(R.id.answers_layout);
 

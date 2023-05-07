@@ -6,50 +6,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:context=".Signs.FirstLevelActivity">
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/imageViewQuizOption"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="?selectableItemBackgroundBorderless"
-        android:padding="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow"
-        app:tint="@color/black" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="Вопрос  "
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/quiznum"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text=""
-        android:textStyle="bold"
-        android:textSize="24sp"
-        android:textColor="@color/black" />
-</LinearLayout>
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imageViewQuizOption"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arrow"
+            app:tint="@color/black" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="Вопрос  "
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/quiznum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text=""
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/black" />
+    </LinearLayout>
 
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_weight="8"
-
         android:layout_height="match_parent">
-        
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -65,13 +65,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <ImageView
-                android:id="@+id/question_image"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:padding="10dp"
-                app:srcCompat="@drawable/turn_right" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:progress="0"
+                    android:max="100" />
+
+                <ImageView
+                    android:id="@+id/question_image"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    />
+
+            </FrameLayout>
 
             <LinearLayout
                 android:id="@+id/answers_layout"
@@ -79,12 +95,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-
-
             </LinearLayout>
 
         </LinearLayout>
-
 
     </ScrollView>
     <LinearLayout
@@ -103,6 +116,6 @@
             android:text="Далее"
             android:textAllCaps="false"
             android:textSize="25dp"
-             />
+            />
     </LinearLayout>
 </LinearLayout>

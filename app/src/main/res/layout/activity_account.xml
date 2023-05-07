@@ -31,7 +31,6 @@
         app:layout_constraintBottom_toTopOf="@+id/signUpLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/trophy"
         app:tint="@color/white" />
 
 
@@ -68,7 +67,7 @@
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_marginTop="30dp"
-            android:src="@drawable/three"
+            android:src="@drawable/person_icon"
             app:civ_border_color="@color/bg_color"
             app:civ_border_width="3dp"
             app:layout_constraintBottom_toTopOf="@+id/textView6"

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -19,6 +20,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.learntodrive.Questions;
 import com.example.learntodrive.R;
 import com.example.learntodrive.TestOptionActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class TrafficSignsActivity extends AppCompatActivity {
 
@@ -47,10 +54,61 @@ public class TrafficSignsActivity extends AppCompatActivity {
         ConstraintLayout constraintLayout1 = findViewById(R.id.ConstraintLayout1);
         ConstraintLayout constraintLayout2 = findViewById(R.id.ConstraintLayout2);
 
+        ImageView One = findViewById(R.id.imageView11);
+        ImageView Two = findViewById(R.id.imageView12);
+        ImageView Three = findViewById(R.id.imageView13);
+        ImageView Four = findViewById(R.id.imageView14);
+
         constraintLayout1.setBackgroundColor(Color.WHITE);
         cv1.setTextColor(Color.BLACK);
         lockLevel1.setVisibility(View.GONE);
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference One1 = database.getReference("Levels/One");
+        DatabaseReference Two2 = database.getReference("Levels/Two");
+        DatabaseReference Three3 = database.getReference("Levels/Three");
+        DatabaseReference Four4 = database.getReference("Levels/Four");
+
+        One1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                Picasso.get().load(value).into(One);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        Two2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                Picasso.get().load(value).into(Two);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        Three3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                Picasso.get().load(value).into(Three);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        Four4.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                Picasso.get().load(value).into(Four);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
         findViewById(R.id.imageViewQuizOption).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
