@@ -44,50 +44,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        ProgressBar progressBar = findViewById(R.id.progressBar);
-        progressBar.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
 
         TextView tvUsername = findViewById(R.id.tvUsernameHome);
         CardView cvStartTest = findViewById(R.id.cvStartTest);
         CardView cvLogout = findViewById(R.id.cvLogout);
+        CardView cvTrophy = findViewById(R.id.cvLogo);
         ImageView imageView = findViewById(R.id.account_icon);
         ImageView Logout = findViewById(R.id.imageLogout);
         ImageView StartTest = findViewById(R.id.imageTest);
+        ImageView Trophy = findViewById(R.id.three);
         mAuth = FirebaseAuth.getInstance();
-
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference Image1 = database.getReference("mainActivity/Logout");
-        DatabaseReference Image2 = database.getReference("mainActivity/StartTest");
-
-        Image1.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (progressBar != null){
-                    progressBar.setVisibility(View.GONE);
-                    String value = snapshot.getValue(String.class);
-                    Picasso.get().load(value).into(Logout);
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        Image2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (progressBar != null) {
-                    progressBar.setVisibility(View.GONE);
-                    String value = snapshot.getValue(String.class);
-                    Picasso.get().load(value).into(StartTest);
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         cvStartTest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,17 +61,21 @@ public class MainActivity extends AppCompatActivity {
                 if (isConnected()) {
                     startActivity(new Intent(MainActivity.this, TestOptionActivity.class));
                 }else {
-                    startActivity(new Intent(MainActivity.this, Activity_splash_screen.class));
+                    startActivity(new Intent(MainActivity.this, NoInternet.class));
                 }
             }
         });
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mAuth.getCurrentUser() == null) {
-                    startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                if (isConnected()) {
+                    if (mAuth.getCurrentUser() == null) {
+                        startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                    } else {
+                        startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                    }
                 }else {
-                    startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                    startActivity(new Intent(MainActivity.this, NoInternet.class));
                 }
             }
         });
@@ -116,6 +86,20 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Вы успешно вышли из аккаунта", Toast.LENGTH_LONG).show();
                 }
                 FirebaseAuth.getInstance().signOut();
+            }
+        });
+        cvTrophy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isConnected()) {
+                    if (mAuth.getCurrentUser() == null) {
+                        startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                    } else {
+                        startActivity(new Intent(MainActivity.this, Trophies.class));
+                    }
+                } else {
+                    startActivity(new Intent(MainActivity.this, NoInternet.class));
+                }
             }
         });
 

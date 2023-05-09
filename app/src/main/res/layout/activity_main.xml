@@ -78,7 +78,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_editor_absoluteX="8dp"
-                    tools:layout_editor_absoluteY="6dp" />
+                    tools:layout_editor_absoluteY="6dp"
+                    app:srcCompat="@drawable/startest"/>
 
                 <TextView
                     android:id="@+id/textView2"
@@ -119,7 +120,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/logout"/>
 
                 <TextView
                     android:gravity="center"
@@ -157,20 +159,21 @@
 
                 <ImageView
                     android:id="@+id/three"
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
                     android:layout_marginBottom="25dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/trophy"/>
 
                 <TextView
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="nothing(hle vor)"
+                    android:text="Пройденные"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -196,14 +199,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/account_icon" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/account_icon"
-        app:layout_constraintEnd_toStartOf="@+id/account_icon"
-        app:layout_constraintStart_toEndOf="@+id/tvHome"
-        app:layout_constraintTop_toTopOf="@+id/account_icon" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

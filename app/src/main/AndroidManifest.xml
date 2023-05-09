@@ -17,8 +17,13 @@
         android:theme="@style/Theme.LearnToDrive"
         tools:targetApi="31">
         <activity
+            android:name=".NoInternet"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".Trophies"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".AccountActivity"
             android:exported="false"

@@ -41,17 +41,6 @@ public class Activity_splash_screen extends AppCompatActivity {
         appLogo = findViewById(R.id.appLogo);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.first_animation);
         appLogo.setAnimation(animation);
-        mainView = findViewById(R.id.mainView);
-        noInet = findViewById(R.id.NoInternet);
-        textView = findViewById(R.id.textView7);
-        if (!isConnected()){
-            ImageView appLogo1 = appLogo;
-            appLogo1.setVisibility(View.GONE);
-            mainView.setBackgroundColor(Color.WHITE);
-            noInet.setVisibility(View.VISIBLE);
-        }else {
-            textView.setVisibility(View.GONE);
-            noInet.setVisibility(View.GONE);
             new Thread(){
                 public void run(){
                     try {
@@ -65,5 +54,3 @@ public class Activity_splash_screen extends AppCompatActivity {
             }.start();
         }
     }
-}
-

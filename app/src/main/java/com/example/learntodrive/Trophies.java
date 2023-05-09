@@ -29,24 +29,16 @@ public class Trophies extends AppCompatActivity {
             }
         });
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference img1 = database.getReference("mainActivity/Safety_box");
+        DatabaseReference img1 = database.getReference("Trophy2");
         ImageView Safety_box = findViewById(R.id.safety_box);
         TextView textView = findViewById(R.id.textView8);
         textView.setVisibility(View.GONE);
 
-        Handler handler = new Handler();
-
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                textView.setVisibility(View.VISIBLE);
-            }
-        };
-        handler.postDelayed(runnable, 1250);
 
         img1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                textView.setVisibility(View.VISIBLE);
                 String value = snapshot.getValue(String.class);
                 Picasso.get().load(value).into(Safety_box);
             }

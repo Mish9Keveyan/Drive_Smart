@@ -54,12 +54,7 @@ public class TestOptionActivity extends AppCompatActivity {
         Balance = findViewById(R.id.imageView13);
         ProgressBar progressBar = findViewById(R.id.progressBar2);
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                progressBar.setVisibility(View.GONE);
-            }
-        }, 1200);
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference Traffic_Signs68 = database.getReference("Traffic Signs");
@@ -70,9 +65,12 @@ public class TestOptionActivity extends AppCompatActivity {
         Traffic_Signs68.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String value = snapshot.getValue(String.class);
-                Picasso.get().load(value).into(TrafficSigns);
-        }
+                if (progressBar != null) {
+                    progressBar.setVisibility(View.GONE);
+                    String value = snapshot.getValue(String.class);
+                    Picasso.get().load(value).into(TrafficSigns);
+                }
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

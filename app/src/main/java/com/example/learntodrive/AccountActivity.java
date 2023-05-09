@@ -29,7 +29,7 @@ public class AccountActivity extends AppCompatActivity {
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference Icon = database.getReference("mainActivity/Trophy");
+        DatabaseReference Icon = database.getReference("Trophy");
 
         Icon.addValueEventListener(new ValueEventListener() {
             @Override
