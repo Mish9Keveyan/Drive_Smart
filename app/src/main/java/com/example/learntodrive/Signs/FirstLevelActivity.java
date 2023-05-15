@@ -72,6 +72,7 @@ public class FirstLevelActivity extends AppCompatActivity {
                 }
                 if (isAnyRadioButtonNotEmpty) {
                     if (Questions1.getType1(QuestionNum) == "radiobutton") {
+                        next.setVisibility(View.GONE);
                         if (Questions1.getCoorectAnswers1(QuestionNum).equals(mAnswer)) {
                             mScore++;
                             displayToastCorrectAnswer();
@@ -86,33 +87,27 @@ public class FirstLevelActivity extends AppCompatActivity {
                             displayToastWrongAnswer();
                         }
                     }
-                    SystemClock.sleep(1000);
-
-                    if (QuestionNum == Questions1.getLenght1() - 1) {
-
-
-                        Intent intent_result = new Intent(FirstLevelActivity.this, ResultActivity1.class);
-                        intent_result.putExtra("totalQuestions", Questions1.getLenght1());
-                        intent_result.putExtra("finalScore", mScore);
-                        startActivity(intent_result);
-
-                        QuestionNum = 0;
-                        mScore = 0;
-                        mTestNum = 1;
-                        finish();
-                    } else {
-
-                        QuestionNum++;
-                        mTestNum++;
-                    }
-
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            updateQuestion();
+                            if (QuestionNum == Questions1.getLenght1() - 1) {
+                                Intent intent_result = new Intent(FirstLevelActivity.this, ResultActivity1.class);
+                                intent_result.putExtra("totalQuestions", Questions1.getLenght1());
+                                intent_result.putExtra("finalScore", mScore);
+                                intent_result.putExtra("level", "first");
+                                startActivity(intent_result);
+                                QuestionNum = 0;
+                                mScore = 0;
+                                mTestNum = 1;
+                                finish();
+                            } else {
+                                QuestionNum++;
+                                mTestNum++;
+                                updateQuestion();
+                            }
                         }
-                    }, 1000);
+                    },1700);
                 }else {
                     Toast.makeText(FirstLevelActivity.this, "Выберите правильный ответ", Toast.LENGTH_SHORT).show();
                 }
@@ -125,9 +120,7 @@ public class FirstLevelActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
-
     private void displayToastCorrectAnswer(){
 
         Toast.makeText(this, "Правильно", Toast.LENGTH_SHORT).show();
@@ -147,15 +140,11 @@ public class FirstLevelActivity extends AppCompatActivity {
         mQuestionView.setText(Questions1.getQuestions1(QuestionNum));
 
         if (Questions1.getType1(QuestionNum) == "radiobutton"){
-
+            findViewById(R.id.button_next).setVisibility(View.VISIBLE);
             showRadioButtonAnswers(QuestionNum);
         }
 
         showMainImage();
-
-        ScrollView sv = findViewById(R.id.scrollView);
-
-        sv.smoothScrollTo(0,0);
 
     }
 
@@ -179,20 +168,31 @@ public class FirstLevelActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT);
 
         rg.setLayoutParams(lp);
-        rg.setPadding(90,0,0,0);
-
-
+        rg.setPadding(40, 100, 20, 0);
+        View topLineView = new View(this);
+        topLineView.setBackgroundColor(Color.BLACK);
+        LinearLayout.LayoutParams topLineParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                2
+        );
+        topLineView.setLayoutParams(topLineParams);
+        rg.addView(topLineView, 0);
 
         for (int i = 0; i <= 2; i++) {
-
             rb1[i] = new RadioButton(this);
-            rb1[i].setText(Questions1.getChoice1(qnum) [i]);
+            rb1[i].setText(Questions1.getChoice1(qnum)[i]);
             rb1[i].setTextColor(Color.BLACK);
-            rb1[i].setPadding(10,66,8,66);
-            rb1[i].setTextSize(20);
+            rb1[i].setPadding(10,70,8,70);
+            rb1[i].setTextSize(18);
             rb1[i].setId(i);
             rb1[i].setWidth(1000);
             rg.addView(rb1[i]);
+            View lineView = new View(this);
+            lineView.setBackgroundColor(Color.BLACK);
+            LinearLayout.LayoutParams lineParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 2);
+            lineView.setLayoutParams(lineParams);
+            rg.addView(lineView);
+
             if (Questions1.getCoorectAnswers1(qnum).equals(Questions1.getChoice1(qnum)[i])) {
                 correctAnswerIndex = i;
             }

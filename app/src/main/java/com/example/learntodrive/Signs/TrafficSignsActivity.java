@@ -11,6 +11,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.os.Bundle;
+import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 public class TrafficSignsActivity extends AppCompatActivity {
-
-
+    private Timer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +58,8 @@ public class TrafficSignsActivity extends AppCompatActivity {
         ImageView lockLevel4 = findViewById(R.id.lockLevel4);
         ConstraintLayout constraintLayout1 = findViewById(R.id.ConstraintLayout1);
         ConstraintLayout constraintLayout2 = findViewById(R.id.ConstraintLayout2);
+        ConstraintLayout constraintLayout3 = findViewById(R.id.ConstraintLayout3);
+        ConstraintLayout constraintLayout4 = findViewById(R.id.ConstraintLayout4);
 
         ImageView One = findViewById(R.id.imageView11);
         ImageView Two = findViewById(R.id.imageView12);
@@ -62,6 +69,7 @@ public class TrafficSignsActivity extends AppCompatActivity {
         constraintLayout1.setBackgroundColor(Color.WHITE);
         cv1.setTextColor(Color.BLACK);
         lockLevel1.setVisibility(View.GONE);
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference One1 = database.getReference("Levels/One");
@@ -125,15 +133,19 @@ public class TrafficSignsActivity extends AppCompatActivity {
         cvLevel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (level >= 1) {
                     startActivity(new Intent(TrafficSignsActivity.this, FirstLevelActivity.class));
-                }
             }
         });
+        //Levels logic start
         if (level >= 2) {
             constraintLayout2.setBackgroundColor(Color.WHITE);
             cv2.setTextColor(Color.BLACK);
             lockLevel2.setVisibility(View.GONE);
+        }
+        if (level >= 3) {
+            constraintLayout3.setBackgroundColor(Color.WHITE);
+            cv3.setTextColor(Color.BLACK);
+            lockLevel3.setVisibility(View.GONE);
         }
         cvLevel2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,7 +160,11 @@ public class TrafficSignsActivity extends AppCompatActivity {
         cvLevel3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
+                if (level >= 3) {
+                    startActivity(new Intent(TrafficSignsActivity.this, SecondLevelActivity.class));
+                } else {
+                    Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         cvLevel4.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +173,6 @@ public class TrafficSignsActivity extends AppCompatActivity {
                 Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
             }
         });
-
+        //Levels logic end
     }
 }

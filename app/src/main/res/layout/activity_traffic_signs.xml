@@ -160,7 +160,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/gray">
+            android:background="@color/gray"
+            android:id="@+id/ConstraintLayout3">
 
             <ImageView
                 android:id="@+id/imageView13"
@@ -210,9 +211,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/gray">
+            android:background="@color/gray"
+            android:id="@+id/ConstraintLayout4">
 
-            <ImageView
+        <ImageView
                 android:id="@+id/imageView14"
                 android:layout_width= "90dp"
                 android:layout_height="90dp"
