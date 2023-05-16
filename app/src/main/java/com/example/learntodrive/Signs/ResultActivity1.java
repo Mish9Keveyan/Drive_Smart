@@ -65,9 +65,10 @@ public class ResultActivity1 extends AppCompatActivity {
             if (!(level1 > 1) && PercentScore1 > 69) {
                 SharedPreferences.Editor editor = save.edit();
                 editor.putInt("Level", 2);
-                editor.commit();
+                editor.apply();
             }
-            super.onBackPressed();
+            startActivity(new Intent(ResultActivity1.this, TrafficSignsActivity.class));
+            finish();
         }
         if (level != null && level.equals("second")) {
             SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
@@ -77,7 +78,8 @@ public class ResultActivity1 extends AppCompatActivity {
                 editor.putInt("Level", 3);
                 editor.commit();
             }
-            super.onBackPressed();
+            startActivity(new Intent(ResultActivity1.this, TrafficSignsActivity.class));
+            finish();
         }
     }
 }
