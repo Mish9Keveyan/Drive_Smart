@@ -10,4 +10,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorAccent">#FF000000</color>
     <color name="gray">#B1B1B1</color>
+    <color name="mugray">#404040</color>
 </resources>

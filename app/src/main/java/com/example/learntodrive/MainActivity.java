@@ -42,17 +42,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-
-        TextView tvUsername = findViewById(R.id.tvUsernameHome);
         CardView cvStartTest = findViewById(R.id.cvStartTest);
         CardView cvLogout = findViewById(R.id.cvLogout);
         CardView cvTrophy = findViewById(R.id.cvLogo);
+        CardView cvBook = findViewById(R.id.cvBook);
+        CardView cvRules = findViewById(R.id.cvRules);
         ImageView imageView = findViewById(R.id.account_icon);
-        ImageView Logout = findViewById(R.id.imageLogout);
-        ImageView StartTest = findViewById(R.id.imageTest);
-        ImageView Trophy = findViewById(R.id.three);
         mAuth = FirebaseAuth.getInstance();
 
         cvStartTest.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +96,18 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     startActivity(new Intent(MainActivity.this, NoInternet.class));
                 }
+            }
+        });
+        cvBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,BookActivity.class));
+            }
+        });
+        cvRules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,RulesActivity.class));
             }
         });
 
