@@ -1,6 +1,7 @@
 package com.example.learntodrive;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ public class RulesViewPagerAdapter extends PagerAdapter {
                 logo.setImageResource(R.drawable.checkmark);
                 title.setText("Если количество правильных ответов в тесте превышает 70%, то следующий тест становится доступным. Каждый тест содержит десять вопросов.");
                 title.setTextSize(20);
+                view.setBackgroundColor(Color.WHITE);
                 break;
             case 1:
                 logo.setImageResource(R.drawable.xmark);
@@ -55,6 +57,7 @@ public class RulesViewPagerAdapter extends PagerAdapter {
                 logo.setImageResource(R.drawable.question);
                 title.setText("Есть еще вопросы?");
                 mail.setText("DriveSmart@mail.ru");
+                view.setBackgroundColor(Color.WHITE);
                 break;
         }
 
