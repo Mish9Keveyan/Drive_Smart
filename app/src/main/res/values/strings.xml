@@ -11,4 +11,8 @@
     <string name="Yes">Да</string>
     <string name="toggleLoginSignUpTextView">Уже есть аккаунт?</string>
     <string name="or">- или войдите с помощью -</string>
+    <string-array name="tests_name">
+        <item>Дорожние знаки</item>
+        <item>Закон дорожного движения</item>
+    </string-array>
 </resources>
