@@ -10,9 +10,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.learntodrive.MainActivity;
 import com.example.learntodrive.R;
 
-public class ResultActivity1 extends AppCompatActivity {
+public class ResultActivity extends AppCompatActivity {
 
     TextView txtCorrectText;
     TextView txtPercentText;
@@ -48,11 +49,17 @@ public class ResultActivity1 extends AppCompatActivity {
         Intent intent = getIntent();
         String level = intent.getStringExtra("level");
         if (level != null && level.equals("first")) {
-            Intent intent_first = new Intent(ResultActivity1.this, FirstLevelActivity.class);
+            Intent intent_first = new Intent(ResultActivity.this, FirstLevelActivity.class);
             startActivity(intent_first);
         } else if (level != null && level.equals("second")) {
-            Intent intent_second = new Intent(ResultActivity1.this, SecondLevelActivity.class);
+            Intent intent_second = new Intent(ResultActivity.this, SecondLevelActivity.class);
             startActivity(intent_second);
+        }else if (level != null && level.equals("third")) {
+            Intent intent_third = new Intent(ResultActivity.this, ThirdLevelActivity.class);
+            startActivity(intent_third);
+        }else if (level != null && level.equals("fourth")) {
+            Intent intent_third = new Intent(ResultActivity.this, FourthLevelActivity.class);
+            startActivity(intent_third);
         }
         finish();
     }
@@ -65,9 +72,9 @@ public class ResultActivity1 extends AppCompatActivity {
             if (!(level1 > 1) && PercentScore1 > 69) {
                 SharedPreferences.Editor editor = save.edit();
                 editor.putInt("Level", 2);
-                editor.apply();
+                editor.commit();
             }
-            startActivity(new Intent(ResultActivity1.this, TrafficSignsActivity.class));
+            startActivity(new Intent(ResultActivity.this, TrafficSignsActivity.class));
             finish();
         }
         if (level != null && level.equals("second")) {
@@ -78,7 +85,29 @@ public class ResultActivity1 extends AppCompatActivity {
                 editor.putInt("Level", 3);
                 editor.commit();
             }
-            startActivity(new Intent(ResultActivity1.this, TrafficSignsActivity.class));
+            startActivity(new Intent(ResultActivity.this, TrafficSignsActivity.class));
+            finish();
+        }
+        if (level != null && level.equals("third")) {
+            SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+            final int level3 = save.getInt("Level", 3);
+            if (!(level3 > 3) && PercentScore1 > 69) {
+                SharedPreferences.Editor editor = save.edit();
+                editor.putInt("Level", 4);
+                editor.commit();
+            }
+            startActivity(new Intent(ResultActivity.this, TrafficSignsActivity.class));
+            finish();
+        }
+        if (level != null && level.equals("fourth")) {
+            SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+            final int level4 = save.getInt("Level", 4);
+            if (!(level4 > 4) && PercentScore1 > 69) {
+                SharedPreferences.Editor editor = save.edit();
+                editor.putInt("Level", 5);
+                editor.commit();
+            }
+            startActivity(new Intent(ResultActivity.this, TrafficSignsActivity.class));
             finish();
         }
     }

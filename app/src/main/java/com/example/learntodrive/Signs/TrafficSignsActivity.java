@@ -142,6 +142,11 @@ public class TrafficSignsActivity extends AppCompatActivity {
             cv3.setTextColor(Color.BLACK);
             lockLevel3.setVisibility(View.GONE);
         }
+        if (level >= 4) {
+            constraintLayout4.setBackgroundColor(Color.WHITE);
+            cv4.setTextColor(Color.BLACK);
+            lockLevel4.setVisibility(View.GONE);
+        }
         cvLevel2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -156,7 +161,7 @@ public class TrafficSignsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (level >= 3) {
-                    startActivity(new Intent(TrafficSignsActivity.this, SecondLevelActivity.class));
+                    startActivity(new Intent(TrafficSignsActivity.this, ThirdLevelActivity.class));
                 } else {
                     Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }
@@ -165,7 +170,11 @@ public class TrafficSignsActivity extends AppCompatActivity {
         cvLevel4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
+                if (level >= 4) {
+                    startActivity(new Intent(TrafficSignsActivity.this, FourthLevelActivity.class));
+                } else {
+                    Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         //Levels logic end

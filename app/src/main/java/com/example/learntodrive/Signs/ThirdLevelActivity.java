@@ -22,18 +22,18 @@ import com.example.learntodrive.R;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
-public class SecondLevelActivity extends AppCompatActivity {
-    final RadioButton[] rb2 = new RadioButton[3];
-    private ImageView nTestImage;
-    private String nAnswer;
+public class ThirdLevelActivity extends AppCompatActivity {
+    final RadioButton[] rb3 = new RadioButton[3];
+    private ImageView bTestImage;
+    private String bAnswer;
     private int correctAnswerIndex;
-    private int nScore = 0;
-    private int nTestNum = 1;
+    private int bScore = 0;
+    private int bTestNum = 1;
     private int QuestionNum = 0;
-    private TextView nQuestionView;
-    private TextView nTestNumView;
-    private Questions Questions2 = new Questions();
-    String Coorectanswers2;
+    private TextView bQuestionView;
+    private TextView bTestNumView;
+    private Questions Questions3 = new Questions();
+    String Coorectanswers3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +41,8 @@ public class SecondLevelActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        nQuestionView = findViewById(R.id.question_textview);
-        nTestNumView = findViewById(R.id.quiznum);
+        bQuestionView = findViewById(R.id.question_textview);
+        bTestNumView = findViewById(R.id.quiznum);
 
         updateQuestion();
 
@@ -52,24 +52,24 @@ public class SecondLevelActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean isAnyRadioButtonNotEmpty = false;
-                for (RadioButton rb : rb2) {
+                for (RadioButton rb : rb3) {
                     if (rb.isChecked()){
                         isAnyRadioButtonNotEmpty = true;
                         break;
                     }
                 }
                 if(isAnyRadioButtonNotEmpty){
-                    if (Questions2.getType2(QuestionNum) == "radiobutton"){
+                    if (Questions3.getType3(QuestionNum) == "radiobutton"){
                         next.setVisibility(View.GONE);
-                        if(Questions2.getCoorectAnswers2(QuestionNum).equals(nAnswer)){
-                            nScore++;
+                        if(Questions3.getCoorectAnswers3(QuestionNum).equals(bAnswer)){
+                            bScore++;
                             displayToastCorrectAnswer();
-                            rb2[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
+                            rb3[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
                         } else {
-                            rb2[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                            for (int i = 0;i < rb2.length; i++){
-                                if (!Questions2.getCoorectAnswers2(QuestionNum).equals(rb2[i].getText())){
-                                    rb2[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
+                            rb3[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
+                            for (int i = 0;i < rb3.length; i++){
+                                if (!Questions3.getCoorectAnswers3(QuestionNum).equals(rb3[i].getText())){
+                                    rb3[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
                                 }
                             }
                             displayToastWrongAnswer();
@@ -79,25 +79,25 @@ public class SecondLevelActivity extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            if (QuestionNum == Questions2.getLenght2() - 1) {
-                                Intent intent_result = new Intent(SecondLevelActivity.this, ResultActivity.class);
-                                intent_result.putExtra("totalQuestions", Questions2.getLenght2());
-                                intent_result.putExtra("finalScore", nScore);
-                                intent_result.putExtra("level", "second");
+                            if (QuestionNum == Questions3.getLenght3() - 1) {
+                                Intent intent_result = new Intent(ThirdLevelActivity.this, ResultActivity.class);
+                                intent_result.putExtra("totalQuestions", Questions3.getLenght3());
+                                intent_result.putExtra("finalScore", bScore);
+                                intent_result.putExtra("level", "third");
                                 startActivity(intent_result);
                                 QuestionNum = 0;
-                                nScore = 0;
-                                nTestNum = 1;
+                                bScore = 0;
+                                bTestNum = 1;
                                 finish();
                             }else {
                                 QuestionNum++;
-                                nTestNum++;
+                                bTestNum++;
                                 updateQuestion();
                             }
                         }
                     },1700);
                 }else {
-                    Toast.makeText(SecondLevelActivity.this, "Выберите правильный ответ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ThirdLevelActivity.this, "Выберите правильный ответ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -118,22 +118,22 @@ public class SecondLevelActivity extends AppCompatActivity {
     private void updateQuestion(){
         LinearLayout answer_layout = findViewById(R.id.answers_layout);
         answer_layout.removeAllViews();
-        nAnswer="";
+        bAnswer="";
         findViewById(R.id.button_next).setBackgroundColor(findViewById(R.id.button_next).getContext().getResources().getColor(R.color.bg_color));
-        nTestNumView.setText(nTestNum + "/" + String.valueOf(Questions2.getLenght2()));
-        nQuestionView.setText(Questions2.getQuestions2(QuestionNum));
-        if(Questions2.getType2(QuestionNum) == "radiobutton"){
+        bTestNumView.setText(bTestNum + "/" + String.valueOf(Questions3.getLenght3()));
+        bQuestionView.setText(Questions3.getQuestions3(QuestionNum));
+        if(Questions3.getType3(QuestionNum) == "radiobutton"){
             showRadioButtonAnswers(QuestionNum);
             findViewById(R.id.button_next).setVisibility(View.VISIBLE);
         }
         showMainImage();
     }
     private void showMainImage(){
-        nTestImage = findViewById(R.id.question_image);
-        String imgUrl = Questions2.getImages2(QuestionNum);
-        Picasso.get().load(imgUrl).into(nTestImage);
+        bTestImage = findViewById(R.id.question_image);
+        String imgUrl = Questions3.getImages3(QuestionNum);
+        Picasso.get().load(imgUrl).into(bTestImage);
     }
-    private int showRadioButtonAnswers(int wnum){
+    private int showRadioButtonAnswers(int anum){
         final LinearLayout answerLayout = findViewById(R.id.answers_layout);
         RadioGroup rg = new RadioGroup(this);
         rg.setOrientation(LinearLayout.VERTICAL);
@@ -156,30 +156,30 @@ public class SecondLevelActivity extends AppCompatActivity {
 
 
         for (int i = 0; i <= 2; i++) {
-            rb2[i] = new RadioButton(this);
-            rb2[i].setText(Questions2.getChoice2(wnum) [i]);
-            rb2[i].setTextColor(Color.BLACK);
-            rb2[i].setPadding(10,70,8,70);
-            rb2[i].setTextSize(16);
-            rb2[i].setId(i);
-            rb2[i].setWidth(1000);
-            rg.addView(rb2[i]);
+            rb3[i] = new RadioButton(this);
+            rb3[i].setText(Questions3.getChoice3(anum) [i]);
+            rb3[i].setTextColor(Color.BLACK);
+            rb3[i].setPadding(10,70,8,70);
+            rb3[i].setTextSize(16);
+            rb3[i].setId(i);
+            rb3[i].setWidth(1000);
+            rg.addView(rb3[i]);
             View lineView = new View(this);
             lineView.setBackgroundColor(Color.BLACK);
             LinearLayout.LayoutParams lineParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 2);
             lineView.setLayoutParams(lineParams);
             rg.addView(lineView);
-            if (Questions2.getCoorectAnswers2(wnum).equals(Questions2.getChoice2(wnum)[i])){
+            if (Questions3.getCoorectAnswers3(anum).equals(Questions3.getChoice3(anum)[i])){
                 correctAnswerIndex = i;
             }
         }
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int Id) {
-                nAnswer = Questions2.getChoice2(QuestionNum)[Id];
+                bAnswer = Questions3.getChoice3(QuestionNum)[Id];
             }
         });
         answerLayout.addView(rg);
-        return wnum;
+        return anum;
     }
 }

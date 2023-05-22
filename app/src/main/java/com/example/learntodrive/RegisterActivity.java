@@ -199,7 +199,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     myRef = database.getReference("test");
                                     myRef.child("users").child(user.getUid()).child("username").setValue(nameInput);
                                     Toast.makeText(RegisterActivity.this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(RegisterActivity.this,AccountActivity.class));
+                                    startActivity(new Intent(RegisterActivity.this,Trophies.class));
                                     finish();
                                 } else {
                                     Log.w("signup", "createUserWithEmail:failure", task.getException());
@@ -219,7 +219,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Log.d("login", "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    startActivity(new Intent(RegisterActivity.this,AccountActivity.class));
+                                    startActivity(new Intent(RegisterActivity.this,Trophies.class));
                                     finish();
                                 } else {
                                     Log.w("login", "signInWithEmail:failure", task.getException());
@@ -311,7 +311,7 @@ public class RegisterActivity extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(RegisterActivity.this, AccountActivity.class);
+                    Intent intent = new Intent(RegisterActivity.this, Trophies.class);
                     startActivity(intent);
                     finish();
                 }

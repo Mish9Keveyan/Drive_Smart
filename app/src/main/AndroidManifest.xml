@@ -36,10 +36,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AccountActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".RegisterActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
@@ -55,7 +51,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Signs.ResultActivity1"
+            android:name=".Signs.ResultActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -69,6 +65,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Signs.SecondLevelActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Signs.ThirdLevelActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Signs.FourthLevelActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"

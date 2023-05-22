@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         CardView cvTrophy = findViewById(R.id.cvLogo);
         CardView cvBook = findViewById(R.id.cvBook);
         CardView cvRules = findViewById(R.id.cvRules);
-        ImageView imageView = findViewById(R.id.account_icon);
         mAuth = FirebaseAuth.getInstance();
 
         cvStartTest.setOnClickListener(new View.OnClickListener() {
@@ -56,20 +55,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (isConnected()) {
                     startActivity(new Intent(MainActivity.this, TestOptionActivity.class));
-                }else {
-                    startActivity(new Intent(MainActivity.this, NoInternet.class));
-                }
-            }
-        });
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (isConnected()) {
-                    if (mAuth.getCurrentUser() == null) {
-                        startActivity(new Intent(MainActivity.this, RegisterActivity.class));
-                    } else {
-                        startActivity(new Intent(MainActivity.this, AccountActivity.class));
-                    }
                 }else {
                     startActivity(new Intent(MainActivity.this, NoInternet.class));
                 }
