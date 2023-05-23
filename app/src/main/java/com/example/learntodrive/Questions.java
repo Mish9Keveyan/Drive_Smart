@@ -41,8 +41,16 @@ public class Questions {
             "Что означает табличка под знаком: "
     };
     private String Questions4[] = {
-            "Этот дорожный знак обозначает : ",
-            "Этот дорожный знак обозначает : "
+            "Что означают эти знаки? ",
+            "Что показывают данные дорожные знаки? ",
+            "Что показывают данные дорожные знаки? ",
+            "Что показывают данные дорожные знаки? ",
+            "На каком расстоянии до неровного участка дороги устанавливается этот знак вне населённого пункта? ",
+            "Что показывают данные дорожные знаки? ",
+            "Что показывают данные дорожные знаки? ",
+            "Что показывают данные дорожные знаки? ",
+            "Имеет ли водитель право совершить разворот на расстоянии 200м ?",
+            "Эти знаки предупреждают Вас: "
     };
     private String Choice1[][] = {
             {"Поворот налево запрещен","Движение направо","Опасный поворот направо"},
@@ -82,8 +90,16 @@ public class Questions {
     };
 
     private String Choice4[][] = {
-            {"Движение направо","Опасный поворот направо"},
-            {"Ограничение максимальной скорости","Ограничение минимальной дистанции"}
+            {"Движение мотоциклов направо запрещено.","Движение мотоциклов налево запрещено."},
+            {"Главная дорога продолжается прямо через перекресток и налево.","Главная дорога продолжается от перекрестка налево."},
+            {"В зоне действия таблички водители должны передвигаться с большей скоростью, чем указано на знаке.","В зоне действия таблички водителям рекомендуется передвигаться co скоростью указанной знаком."},
+            {"Через 150-300 м после знака начинается сужение дороги с правой стороны протяженностью 100 м.","Через 100 м после знака начинается сужение дороги с правой стороны."},
+            {"150-300 м","50-100 м"},
+            {"Съезжать на обочину опасно в связи с ремонтными работами.","На дороге ведутся ремонтные работы."},
+            {"Водители должны передвигаться со скоростью 40км/ч при гололедице.","Водители должны передвигаться со скоростью не более 40км/ч ри мокром покрытии дороги."},
+            {"При мокром покрытии дороги рекомендуется движение со скоростью 40 КМ/Ч.","При мокром покрытии дороги разрешается движение со скоростью не более 40 кМ/Ч."},
+            {"Имеет право.","Не имеет право."},
+            {"О наличии через 150-300 м железнодорожного переезда без шлагбаума.","О наличии через 50-100 м железнодорожного переезда."}
     };
 
 
@@ -127,8 +143,16 @@ public class Questions {
     };
 
     private String CoorectAnswers4 [] = {
-            "Движение направо",
-            "Ограничение максимальной скорости"
+            "Движение мотоциклов направо запрещено.",
+            "Главная дорога продолжается от перекрестка налево.",
+            "В зоне действия таблички водителям рекомендуется передвигаться co скоростью указанной знаком.",
+            "Через 150-300 м после знака начинается сужение дороги с правой стороны протяженностью 100 м.",
+            "150-300 м",
+            "Съезжать на обочину опасно в связи с ремонтными работами.",
+            "Водители должны передвигаться со скоростью не более 40км/ч ри мокром покрытии дороги.",
+            "При мокром покрытии дороги рекомендуется движение со скоростью 40 КМ/Ч.",
+            "Имеет право.",
+            "О наличии через 150-300 м железнодорожного переезда без шлагбаума."
     };
 
 
@@ -172,8 +196,16 @@ public class Questions {
     };
 
     private String Images4[] = {
-            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2Fturn_right.png?alt=media&token=a62cf880-38b3-4347-be04-335310dd4584",
-            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2Fspeed_limit.png?alt=media&token=696f42c7-d441-4718-a36b-1bcf5444eb5f"
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel%204%2F11.jpg?alt=media&token=56fc5e26-86b0-4020-8990-819445c83fe8",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel%204%2F12.png?alt=media&token=e64decff-d950-413b-b3e5-3b058f9d6ea1",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel%204%2F13.jpg?alt=media&token=d0b4c3cf-cd78-4bd4-94d3-57393796789a",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel%204%2F14.jpg?alt=media&token=3ce985f2-ff3e-408a-ada2-58e935fdf8d3",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel%204%2F15.png?alt=media&token=99be8ef9-6080-4810-9aa2-5806ac1b7ff2",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel3%2Fphoto_5425073720038377676_x.jpg?alt=media&token=26eb8e77-ba8a-4d5a-a556-4546f3ee7c30",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel%204%2F16.jpg?alt=media&token=811675ee-199a-486d-b354-a27a69d9cdc1",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel%204%2F17.jpg?alt=media&token=8fbb3c27-24a5-49a6-a636-b3f984b81abe",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel%204%2F18.jpg?alt=media&token=de23f689-9971-4fa3-a59d-78f280670895",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Signs%2FLevel%204%2F20.jpg?alt=media&token=e0e90b8a-8780-4b11-b0d4-da0743d4e315"
     };
 
     private String QuestionsType1[] = {
@@ -214,6 +246,14 @@ public class Questions {
     };
 
     private String QuestionsType4[] = {
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
             "radiobutton",
             "radiobutton"
     };

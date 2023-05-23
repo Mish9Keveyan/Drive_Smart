@@ -12,4 +12,6 @@
     <color name="gray">#B1B1B1</color>
     <color name="mugray">#404040</color>
     <color name="xmark">#FEFCFC</color>
+    <color name="Right">#53CC16</color>
+    <color name="Incorrect">#FF5555</color>
 </resources>

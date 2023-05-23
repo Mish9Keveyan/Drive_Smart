@@ -55,7 +55,6 @@ public class FirstLevelActivity extends AppCompatActivity {
         updateQuestion();
 
         Button next = findViewById(R.id.button_next);
-
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,16 +70,6 @@ public class FirstLevelActivity extends AppCompatActivity {
                         next.setVisibility(View.GONE);
                         if (Questions1.getCoorectAnswers1(QuestionNum).equals(mAnswer)) {
                             mScore++;
-                            displayToastCorrectAnswer();
-                            rb1[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                        } else {
-                            rb1[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                            for (int i = 0; i < rb1.length; i++) {
-                                if (!Questions1.getCoorectAnswers1(QuestionNum).equals(rb1[i].getText())) {
-                                    rb1[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
-                                }
-                            }
-                            displayToastWrongAnswer();
                         }
                     }
                     Handler handler = new Handler();
@@ -103,7 +92,7 @@ public class FirstLevelActivity extends AppCompatActivity {
                                 updateQuestion();
                             }
                         }
-                    },1700);
+                    },550);
                 }else {
                     Toast.makeText(FirstLevelActivity.this, "Выберите правильный ответ", Toast.LENGTH_SHORT).show();
                 }
@@ -126,22 +115,21 @@ public class FirstLevelActivity extends AppCompatActivity {
         Toast.makeText(this, "Неверно", Toast.LENGTH_SHORT).show();
     }
 
-    private void updateQuestion(){
+    private void updateQuestion() {
         LinearLayout answer_layout = findViewById(R.id.answers_layout);
         answer_layout.removeAllViews();
-        mAnswer="";
+        mAnswer = "";
         findViewById(R.id.button_next).setBackgroundColor(findViewById(R.id.button_next).getContext().getResources().getColor(R.color.bg_color));
 
         mTestNumView.setText(mTestNum + "/" + String.valueOf(Questions1.getLenght1()));
         mQuestionView.setText(Questions1.getQuestions1(QuestionNum));
 
-        if (Questions1.getType1(QuestionNum) == "radiobutton"){
+        if (Questions1.getType1(QuestionNum).equals("radiobutton")) {
             findViewById(R.id.button_next).setVisibility(View.VISIBLE);
             showRadioButtonAnswers(QuestionNum);
         }
 
         showMainImage();
-
     }
 
     private void showMainImage(){
@@ -152,8 +140,7 @@ public class FirstLevelActivity extends AppCompatActivity {
         Picasso.get().load(imgUrl).into(mTestImage);
     }
 
-    private int showRadioButtonAnswers(int qnum){
-
+    private void showRadioButtonAnswers(int qnum) {
         final LinearLayout answerLayout = findViewById(R.id.answers_layout);
 
         RadioGroup rg = new RadioGroup(this);
@@ -164,7 +151,7 @@ public class FirstLevelActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT);
 
         rg.setLayoutParams(lp);
-        rg.setPadding(40, 100, 20, 0);
+        rg.setPadding(40, 100, 40, 0);
         View topLineView = new View(this);
         topLineView.setBackgroundColor(Color.BLACK);
         LinearLayout.LayoutParams topLineParams = new LinearLayout.LayoutParams(
@@ -178,7 +165,7 @@ public class FirstLevelActivity extends AppCompatActivity {
             rb1[i] = new RadioButton(this);
             rb1[i].setText(Questions1.getChoice1(qnum)[i]);
             rb1[i].setTextColor(Color.BLACK);
-            rb1[i].setPadding(10,70,8,70);
+            rb1[i].setPadding(10, 70, 8, 70);
             rb1[i].setTextSize(18);
             rb1[i].setId(i);
             rb1[i].setWidth(1000);
@@ -194,16 +181,43 @@ public class FirstLevelActivity extends AppCompatActivity {
             }
         }
 
-      rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-          @Override
-          public void onCheckedChanged(RadioGroup radioGroup, int Id) {
-              mAnswer = Questions1.getChoice1(QuestionNum)[Id];
-
-          }
-      });
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int Id) {
+                mAnswer = Questions1.getChoice1(QuestionNum)[Id];
+                displayCorrectAnswer();
+            }
+        });
         answerLayout.addView(rg);
+    }
 
+    private void displayCorrectAnswer() {
+        for (int i = 0; i < rb1.length; i++) {
+            rb1[i].setEnabled(false);
+        }
 
-        return qnum;
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < rb1.length; i++) {
+                    if (Questions1.getCoorectAnswers1(QuestionNum).equals(rb1[i].getText())) {
+                        rb1[i].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
+                        if (rb1[i].isChecked()) {
+                            displayToastCorrectAnswer();
+                            rb1[i].setBackgroundResource(R.color.Right);
+                            rb1[i].setTextColor(getResources().getColor(R.color.white));
+                        }
+                    } else {
+                        if (rb1[i].isChecked()) {
+                            rb1[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
+                            rb1[i].setBackgroundResource(R.color.Incorrect);
+                            rb1[i].setTextColor(getResources().getColor(R.color.white));
+                            displayToastWrongAnswer();
+                        }
+                    }
+                }
+            }
+        }, 550);
     }
 }

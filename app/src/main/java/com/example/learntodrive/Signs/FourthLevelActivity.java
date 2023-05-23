@@ -71,16 +71,6 @@ public class FourthLevelActivity extends AppCompatActivity {
                         next.setVisibility(View.GONE);
                         if (Questions4.getCoorectAnswers4(QuestionNum).equals(vAnswer)) {
                             vScore++;
-                            displayToastCorrectAnswer();
-                            rb4[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                        } else {
-                            rb4[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                            for (int i = 0; i < rb4.length; i++) {
-                                if (!Questions4.getCoorectAnswers4(QuestionNum).equals(rb4[i].getText())) {
-                                    rb4[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
-                                }
-                            }
-                            displayToastWrongAnswer();
                         }
                     }
                     Handler handler = new Handler();
@@ -103,7 +93,7 @@ public class FourthLevelActivity extends AppCompatActivity {
                                 updateQuestion();
                             }
                         }
-                    },1700);
+                    },550);
                 }else {
                     Toast.makeText(FourthLevelActivity.this, "Выберите правильный ответ", Toast.LENGTH_SHORT).show();
                 }
@@ -135,7 +125,7 @@ public class FourthLevelActivity extends AppCompatActivity {
         vTestNumView.setText(vTestNum + "/" + String.valueOf(Questions4.getLenght4()));
         vQuestionView.setText(Questions4.getQuestions4(QuestionNum));
 
-        if (Questions4.getType4(QuestionNum) == "radiobutton"){
+        if (Questions4.getType4(QuestionNum).equals("radiobutton")){
             findViewById(R.id.button_next).setVisibility(View.VISIBLE);
             showRadioButtonAnswers(QuestionNum);
         }
@@ -152,7 +142,7 @@ public class FourthLevelActivity extends AppCompatActivity {
         Picasso.get().load(imgUrl).into(vTestImage);
     }
 
-    private int showRadioButtonAnswers(int snum){
+    private void showRadioButtonAnswers(int snum){
 
         final LinearLayout answerLayout = findViewById(R.id.answers_layout);
 
@@ -164,7 +154,7 @@ public class FourthLevelActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT);
 
         rg.setLayoutParams(lp);
-        rg.setPadding(40, 130, 20, 0);
+        rg.setPadding(25, 130, 55, 0);
         View topLineView = new View(this);
         topLineView.setBackgroundColor(Color.BLACK);
         LinearLayout.LayoutParams topLineParams = new LinearLayout.LayoutParams(
@@ -179,7 +169,7 @@ public class FourthLevelActivity extends AppCompatActivity {
             rb4[i].setText(Questions4.getChoice4(snum)[i]);
             rb4[i].setTextColor(Color.BLACK);
             rb4[i].setPadding(10,100,8,100);
-            rb4[i].setTextSize(18);
+            rb4[i].setTextSize(19);
             rb4[i].setId(i);
             rb4[i].setWidth(1000);
             rg.addView(rb4[i]);
@@ -198,12 +188,38 @@ public class FourthLevelActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int Id) {
                 vAnswer = Questions4.getChoice4(QuestionNum)[Id];
-
+                displayCorrectAnswer();
             }
         });
         answerLayout.addView(rg);
+    }
+    private void displayCorrectAnswer() {
+        for (int i = 0; i < rb4.length; i++) {
+            rb4[i].setEnabled(false);
+        }
 
-
-        return snum;
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < rb4.length; i++) {
+                    if (Questions4.getCoorectAnswers4(QuestionNum).equals(rb4[i].getText())) {
+                        rb4[i].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
+                        if (rb4[i].isChecked()) {
+                            rb4[i].setBackgroundResource(R.color.Right);
+                            rb4[i].setTextColor(getResources().getColor(R.color.white));
+                            displayToastCorrectAnswer();
+                        }
+                    } else {
+                        if (rb4[i].isChecked()) {
+                            rb4[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
+                            rb4[i].setBackgroundResource(R.color.Incorrect);
+                            rb4[i].setTextColor(getResources().getColor(R.color.white));
+                            displayToastWrongAnswer();
+                        }
+                    }
+                }
+            }
+        }, 550);
     }
 }

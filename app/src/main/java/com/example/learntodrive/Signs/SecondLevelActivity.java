@@ -63,16 +63,6 @@ public class SecondLevelActivity extends AppCompatActivity {
                         next.setVisibility(View.GONE);
                         if(Questions2.getCoorectAnswers2(QuestionNum).equals(nAnswer)){
                             nScore++;
-                            displayToastCorrectAnswer();
-                            rb2[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                        } else {
-                            rb2[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                            for (int i = 0;i < rb2.length; i++){
-                                if (!Questions2.getCoorectAnswers2(QuestionNum).equals(rb2[i].getText())){
-                                    rb2[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
-                                }
-                            }
-                            displayToastWrongAnswer();
                         }
                     }
                     Handler handler = new Handler();
@@ -95,7 +85,7 @@ public class SecondLevelActivity extends AppCompatActivity {
                                 updateQuestion();
                             }
                         }
-                    },1700);
+                    },550);
                 }else {
                     Toast.makeText(SecondLevelActivity.this, "Выберите правильный ответ", Toast.LENGTH_SHORT).show();
                 }
@@ -133,7 +123,7 @@ public class SecondLevelActivity extends AppCompatActivity {
         String imgUrl = Questions2.getImages2(QuestionNum);
         Picasso.get().load(imgUrl).into(nTestImage);
     }
-    private int showRadioButtonAnswers(int wnum){
+    private void showRadioButtonAnswers(int wnum){
         final LinearLayout answerLayout = findViewById(R.id.answers_layout);
         RadioGroup rg = new RadioGroup(this);
         rg.setOrientation(LinearLayout.VERTICAL);
@@ -142,7 +132,7 @@ public class SecondLevelActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         rg.setLayoutParams(lp);
-        rg.setPadding(40, 100, 20, 0);
+        rg.setPadding(20, 100, 60, 0);
 
 
         View topLineView = new View(this);
@@ -177,9 +167,38 @@ public class SecondLevelActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int Id) {
                 nAnswer = Questions2.getChoice2(QuestionNum)[Id];
+                displayCorrectAnswer();
             }
         });
         answerLayout.addView(rg);
-        return wnum;
+    }
+    private void displayCorrectAnswer() {
+        for (int i = 0; i < rb2.length; i++) {
+            rb2[i].setEnabled(false);
+        }
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < rb2.length; i++) {
+                    if (Questions2.getCoorectAnswers2(QuestionNum).equals(rb2[i].getText())) {
+                        rb2[i].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
+                        if (rb2[i].isChecked()) {
+                            displayToastCorrectAnswer();
+                            rb2[i].setBackgroundResource(R.color.Right);
+                            rb2[i].setTextColor(getResources().getColor(R.color.white));
+                        }
+                    } else {
+                        if (rb2[i].isChecked()) {
+                            displayToastWrongAnswer();
+                            rb2[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
+                            rb2[i].setBackgroundResource(R.color.Incorrect);
+                            rb2[i].setTextColor(getResources().getColor(R.color.white));
+                        }
+                    }
+                }
+            }
+        }, 550);
     }
 }

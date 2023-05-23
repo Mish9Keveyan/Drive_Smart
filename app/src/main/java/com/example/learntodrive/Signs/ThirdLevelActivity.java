@@ -59,20 +59,10 @@ public class ThirdLevelActivity extends AppCompatActivity {
                     }
                 }
                 if(isAnyRadioButtonNotEmpty){
-                    if (Questions3.getType3(QuestionNum) == "radiobutton"){
+                    if (Questions3.getType3(QuestionNum) == "radiobutton") {
                         next.setVisibility(View.GONE);
-                        if(Questions3.getCoorectAnswers3(QuestionNum).equals(bAnswer)){
+                        if (Questions3.getCoorectAnswers3(QuestionNum).equals(bAnswer)) {
                             bScore++;
-                            displayToastCorrectAnswer();
-                            rb3[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                        } else {
-                            rb3[correctAnswerIndex].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
-                            for (int i = 0;i < rb3.length; i++){
-                                if (!Questions3.getCoorectAnswers3(QuestionNum).equals(rb3[i].getText())){
-                                    rb3[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
-                                }
-                            }
-                            displayToastWrongAnswer();
                         }
                     }
                     Handler handler = new Handler();
@@ -95,7 +85,7 @@ public class ThirdLevelActivity extends AppCompatActivity {
                                 updateQuestion();
                             }
                         }
-                    },1700);
+                    },550);
                 }else {
                     Toast.makeText(ThirdLevelActivity.this, "Выберите правильный ответ", Toast.LENGTH_SHORT).show();
                 }
@@ -133,7 +123,7 @@ public class ThirdLevelActivity extends AppCompatActivity {
         String imgUrl = Questions3.getImages3(QuestionNum);
         Picasso.get().load(imgUrl).into(bTestImage);
     }
-    private int showRadioButtonAnswers(int anum){
+    private void showRadioButtonAnswers(int anum){
         final LinearLayout answerLayout = findViewById(R.id.answers_layout);
         RadioGroup rg = new RadioGroup(this);
         rg.setOrientation(LinearLayout.VERTICAL);
@@ -142,7 +132,7 @@ public class ThirdLevelActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         rg.setLayoutParams(lp);
-        rg.setPadding(40, 100, 20, 0);
+        rg.setPadding(25, 100, 55, 0);
 
 
         View topLineView = new View(this);
@@ -177,9 +167,39 @@ public class ThirdLevelActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int Id) {
                 bAnswer = Questions3.getChoice3(QuestionNum)[Id];
+                displayCorrectAnswer();
             }
         });
         answerLayout.addView(rg);
-        return anum;
+    }
+
+    private void displayCorrectAnswer() {
+        for (int i = 0; i < rb3.length; i++) {
+            rb3[i].setEnabled(false);
+        }
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < rb3.length; i++) {
+                    if (Questions3.getCoorectAnswers3(QuestionNum).equals(rb3[i].getText())) {
+                        rb3[i].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
+                        if (rb3[i].isChecked()) {
+                            displayToastCorrectAnswer();
+                            rb3[i].setBackgroundResource(R.color.Right);
+                            rb3[i].setTextColor(getResources().getColor(R.color.white));
+                        }
+                    } else {
+                        if (rb3[i].isChecked()) {
+                            displayToastWrongAnswer();
+                            rb3[i].setButtonTintList(ColorStateList.valueOf(Color.RED));
+                            rb3[i].setBackgroundResource(R.color.Incorrect);
+                            rb3[i].setTextColor(getResources().getColor(R.color.white));
+                        }
+                    }
+                }
+            }
+        }, 550);
     }
 }
