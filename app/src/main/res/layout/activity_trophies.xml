@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Trophies">
 
-    <ImageView
-        android:id="@+id/safety_box"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginBottom="70dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:id="@+id/imageViewQuizOption"
@@ -31,18 +21,358 @@
         app:tint="@color/black" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Проходите  тесты, чтобы получить награды"
-        android:textSize="29sp"
-        android:gravity="center"
+        android:layout_marginStart="20dp"
+        android:text="Пройденные тесты"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewQuizOption"
+        app:layout_constraintStart_toEndOf="@+id/imageViewQuizOption"
+        app:layout_constraintTop_toTopOf="@+id/imageViewQuizOption" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvTrafficSigns"
+        style="@style/cardViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_card_height"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/bg_color"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/safety_box" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/TV1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="15sp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="35dp"
+                app:layout_constraintBottom_toTopOf="@+id/v11"
+                app:layout_constraintStart_toEndOf="@+id/imageView10" />
+
+            <View
+                android:id="@+id/v11"
+                android:layout_width="40dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                app:layout_constraintStart_toEndOf="@+id/imageView10" />
+            <View
+                android:id="@+id/v12"
+                android:layout_width="40dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                app:layout_constraintStart_toEndOf="@+id/v11" />
+            <View
+                android:id="@+id/v13"
+                android:layout_width="40dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                app:layout_constraintStart_toEndOf="@+id/v12" />
+            <View
+                android:id="@+id/v14"
+                android:layout_width="40dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                app:layout_constraintStart_toEndOf="@+id/v13"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView10" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width= "80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:layout_marginStart="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/categoryHeadingTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:text="Дорожние знаки"
+                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                app:layout_constraintTop_toTopOf="@+id/imageView10" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCrossroads"
+        style="@style/cardViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_card_height"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvTrafficSigns">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/TV2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="15sp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="35dp"
+                app:layout_constraintBottom_toTopOf="@+id/v21"
+                app:layout_constraintStart_toEndOf="@+id/imageView11" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width= "80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:layout_marginStart="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/categoryHeadingTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:text="Перекресток"
+                app:layout_constraintStart_toEndOf="@+id/imageView11"
+                app:layout_constraintTop_toTopOf="@+id/imageView11" />
+            <View
+                android:id="@+id/v21"
+                android:layout_width="40dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+                app:layout_constraintStart_toEndOf="@+id/imageView11" />
+            <View
+                android:id="@+id/v22"
+                android:layout_width="40dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+                app:layout_constraintStart_toEndOf="@+id/v21" />
+            <View
+                android:id="@+id/v23"
+                android:layout_width="40dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView11"
+                app:layout_constraintStart_toEndOf="@+id/v22" />
+            <View
+                android:id="@+id/v24"
+                android:layout_width="40dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintStart_toEndOf="@+id/v23"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView11" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvFirst_help"
+        style="@style/cardViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_card_height"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvCrossroads">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/TV3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="15sp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginStart="35dp"
+                app:layout_constraintBottom_toTopOf="@+id/v31"
+                app:layout_constraintStart_toEndOf="@+id/imageView12" />
+
+            <View
+                android:id="@+id/v31"
+                android:layout_width="41dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="35dp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+                app:layout_constraintStart_toEndOf="@+id/imageView12" />
+            <View
+                android:id="@+id/v32"
+                android:layout_width="41dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+                app:layout_constraintStart_toEndOf="@+id/v31" />
+            <View
+                android:id="@+id/v33"
+                android:layout_width="41dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+                app:layout_constraintStart_toEndOf="@+id/v32" />
+            <View
+                android:id="@+id/v34"
+                android:layout_width="42dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                app:layout_constraintStart_toEndOf="@+id/v33"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView12" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width= "77dp"
+                android:layout_height="77dp"
+                android:scaleType="fitXY"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                style="@style/categoryHeadingTextStyle"
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="37dp"
+                android:textSize="16sp"
+                android:text="Безопасность д. движения"
+                app:layout_constraintStart_toEndOf="@+id/imageView12"
+                app:layout_constraintTop_toTopOf="@+id/imageView12" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLaw"
+        style="@style/cardViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_card_height"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvFirst_help">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width= "94dp"
+                android:layout_height="94dp"
+                android:scaleType="fitXY"
+                android:layout_marginStart="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/categoryHeadingTextStyle"
+                android:layout_width="200sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="7dp"
+                android:textSize="15sp"
+                android:text="Закон д. движения"
+                app:layout_constraintStart_toEndOf="@+id/imageView13"
+                app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+            <View
+                android:id="@+id/v41"
+                android:layout_width="41dp"
+                android:layout_height="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+                app:layout_constraintStart_toEndOf="@+id/imageView13" />
+            <View
+                android:id="@+id/v42"
+                android:layout_width="41dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+                app:layout_constraintStart_toEndOf="@+id/v41" />
+            <View
+                android:id="@+id/v43"
+                android:layout_width="41dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+                app:layout_constraintStart_toEndOf="@+id/v42" />
+            <View
+                android:id="@+id/v44"
+                android:layout_width="43dp"
+                android:layout_height="5dp"
+                android:background="@color/gray"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintStart_toEndOf="@+id/v43"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView13" />
+
+            <TextView
+                android:id="@+id/TV4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="15sp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/v41"
+                app:layout_constraintStart_toEndOf="@+id/imageView13" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,7 @@
         android:textSize="24sp"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:text=" "
+        android:text="a"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

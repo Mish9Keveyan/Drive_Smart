@@ -25,15 +25,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.List;
 public class Activity_splash_screen extends AppCompatActivity {
-    Context context;
-    TextView textView;
-    private View mainView;
-    private boolean isConnected(){
-        ConnectivityManager connectivityManager = (ConnectivityManager) getApplicationContext().getSystemService(context.CONNECTIVITY_SERVICE);
-        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnectedOrConnecting();
-    }
+
     private ImageView appLogo;
-    private ImageView noInet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

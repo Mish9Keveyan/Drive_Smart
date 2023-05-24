@@ -22,6 +22,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthCredential;
@@ -183,6 +185,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         String email = textInputEmail.getEditText().getText().toString().trim();
         String password = textInputPassword.getEditText().getText().toString().trim();
+
         if (!isLoginActivity) {
             if (validateEmail() & validateName() & validatePassword() & validateConfirmPassword()) {
                 mAuth.createUserWithEmailAndPassword(email, password)
@@ -191,24 +194,35 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     String nameInput = textInputName.getEditText().getText().toString().trim();
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    if (user != null) {
+                                        user.sendEmailVerification()
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            Toast.makeText(RegisterActivity.this, "Код с подтверждением отправлено " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                                                        } else {
+                                                            Log.e("verification", "sendEmailVerification", task.getException());
+                                                        }
+                                                    }
+                                                });
+                                    }
+
                                     Toast.makeText(RegisterActivity.this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
                                     Log.d("signup", "createUserWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
-
                                     database = FirebaseDatabase.getInstance();
                                     myRef = database.getReference("test");
                                     myRef.child("users").child(user.getUid()).child("username").setValue(nameInput);
-                                    Toast.makeText(RegisterActivity.this, "Welcome " + nameInput, Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(RegisterActivity.this,Trophies.class));
+                                    startActivity(new Intent(RegisterActivity.this, Trophies.class));
                                     finish();
                                 } else {
                                     Log.w("signup", "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                    Toast.makeText(RegisterActivity.this, "Не удалось зарегистрироваться",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
-
             }
         } else {
             if (validateEmail() & validatePassword()) {
@@ -219,7 +233,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Log.d("login", "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    startActivity(new Intent(RegisterActivity.this,Trophies.class));
+                                    startActivity(new Intent(RegisterActivity.this, Trophies.class));
                                     finish();
                                 } else {
                                     Log.w("login", "signInWithEmail:failure", task.getException());
@@ -231,6 +245,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         }
     }
+
     public static int countAtSymbols(String inputString) {
         int count = 0;
         for (int i = 0; i < inputString.length(); i++) {
