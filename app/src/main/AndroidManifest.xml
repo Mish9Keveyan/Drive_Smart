@@ -17,6 +17,22 @@
         android:theme="@style/Theme.LearnToDrive"
         tools:targetApi="31">
         <activity
+            android:name=".CrossRoads.CrossRoads1"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CrossRoads.CrossRoads2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CrossRoads.CrossRoads3"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".CrossRoads.CrossRoads4"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Books"
             android:exported="false" />
         <activity
@@ -55,6 +71,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".CrossRoads.Result2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".TestOptionActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -75,6 +95,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CrossRoads.CrossRoadsActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
     </application>
 

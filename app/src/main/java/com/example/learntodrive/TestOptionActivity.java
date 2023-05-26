@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.example.learntodrive.CrossRoads.CrossRoadsActivity;
 import com.example.learntodrive.Signs.TrafficSignsActivity;
 import com.google.api.Http;
 import com.google.firebase.database.DataSnapshot;
@@ -130,8 +131,7 @@ public class TestOptionActivity extends AppCompatActivity {
         cvCrossRoads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(TestOptionActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
-            }
+                startActivity(new Intent(TestOptionActivity.this, CrossRoadsActivity.class));}
         });
     }
 }
