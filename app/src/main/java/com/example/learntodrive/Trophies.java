@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 public class Trophies extends AppCompatActivity {
     View v11,v12,v13,v14,v21,v22,v23,v24,v31,v32,v33,v34,v41,v42,v43,v44;
     TextView TV1,TV2,TV3,TV4;
-    ImageView TrafficSigns,Balance,FirstHelp,Crossroads;
+    ImageView TrafficSigns,Balance,FirstHelp,Crossroads,a1;
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +44,7 @@ public class Trophies extends AppCompatActivity {
         Crossroads = findViewById(R.id.imageView11);
         FirstHelp = findViewById(R.id.imageView12);
         Balance = findViewById(R.id.imageView13);
+        a1 = findViewById(R.id.korona1);
         ProgressBar progressBar = findViewById(R.id.progressBar2);
         CardView cvTrafficSigns = findViewById(R.id.cvTrafficSigns);
         CardView cvCrossroads = findViewById(R.id.cvCrossroads);
@@ -100,10 +101,15 @@ public class Trophies extends AppCompatActivity {
             }
         });
         cvTrafficSigns.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(Trophies.this, "Пройдите тесты, чтобы получить трофеи", Toast.LENGTH_SHORT).show();
+                @Override
+                public void onClick (View view){
+                    if (level >= 5){
+                        Toast.makeText(Trophies.this, "Поздравляю вы прошли тест Дорожние знаки", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(Trophies.this, "Пройдите тесты, чтобы получить трофеи", Toast.LENGTH_SHORT).show();
+                    }
             }
+            
         });
         cvCrossroads.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,21 +132,32 @@ public class Trophies extends AppCompatActivity {
 
         if (level >= 2) {
             v11.setBackgroundResource(R.color.bg_color);
-            TV1.setTextColor(R.color.bg_color);
+            TV1.setTextColor(getResources().getColor(R.color.bg_color));
             TV1.setText("25%");
         }
         if (level >= 3) {
             v12.setBackgroundResource(R.color.bg_color);
+            TV1.setTextColor(getResources().getColor(R.color.bg_color));
             TV1.setText("50%");
         }
         if (level >= 4) {
             v13.setBackgroundResource(R.color.bg_color);
+            TV1.setTextColor(getResources().getColor(R.color.bg_color));
             TV1.setText("75%");
         }
         if (level >= 5) {
-            v14.setBackgroundResource(R.color.bg_color);
+            v11.setBackgroundResource(R.color.white);
+            v12.setBackgroundResource(R.color.white);
+            v13.setBackgroundResource(R.color.white);
+            v14.setBackgroundResource(R.color.white);
             TV1.setText("100%");
-            textView1.setTextColor(R.color.white);
+            TV1.setTextColor(getResources().getColor(R.color.white));
+            textView1.setTextColor(getResources().getColor(R.color.white));
+            cvTrafficSigns.setBackgroundResource(R.color.Gold);
+            Picasso.get()
+                    .load("https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/a.png?alt=media&token=0f2496fb-d2ef-433e-a3de-f79d7c653e6c")
+                    .into(a1);
         }
+
     }
 }
