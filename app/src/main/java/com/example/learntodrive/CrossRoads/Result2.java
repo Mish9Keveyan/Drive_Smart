@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import com.example.learntodrive.MainActivity;
 import com.example.learntodrive.R;
+import com.example.learntodrive.Signs.FirstLevelActivity;
+import com.example.learntodrive.Signs.FourthLevelActivity;
+import com.example.learntodrive.Signs.ResultActivity;
+import com.example.learntodrive.Signs.SecondLevelActivity;
+import com.example.learntodrive.Signs.ThirdLevelActivity;
 
 public class Result2 extends AppCompatActivity {
 
@@ -46,11 +51,23 @@ public class Result2 extends AppCompatActivity {
 
 
     public void restartGame(View view) {
-        Intent intent = new Intent(Result2.this, CrossRoads1.class);
-        startActivity(intent);
+        Intent intent = getIntent();
+        String level = intent.getStringExtra("level2");
+        if (level != null && level.equals("first1")) {
+            Intent intent_first = new Intent(Result2.this, CrossRoads1.class);
+            startActivity(intent_first);
+        } else if (level != null && level.equals("second1")) {
+            Intent intent_second = new Intent(Result2.this, CrossRoads2.class);
+            startActivity(intent_second);
+        }else if (level != null && level.equals("third1")) {
+            Intent intent_third = new Intent(Result2.this, CrossRoads3.class);
+            startActivity(intent_third);
+        }else if (level != null && level.equals("fourth1")) {
+            Intent intent_third = new Intent(Result2.this, CrossRoads4.class);
+            startActivity(intent_third);
+        }
         finish();
     }
-
 
     public void goToMenu(View view) {
         Intent intent = getIntent();
@@ -88,9 +105,6 @@ public class Result2 extends AppCompatActivity {
                 editor.apply();
             }
         }
-
-        startActivity(new Intent(Result2.this, CrossRoadsActivity.class));
         finish();
     }
-
 }

@@ -25,7 +25,7 @@ import com.squareup.picasso.Picasso;
 public class Trophies extends AppCompatActivity {
     View v11,v12,v13,v14,v21,v22,v23,v24,v31,v32,v33,v34,v41,v42,v43,v44;
     TextView TV1,TV2,TV3,TV4;
-    ImageView TrafficSigns,Balance,FirstHelp,Crossroads,a1;
+    ImageView TrafficSigns,Balance,FirstHelp,Crossroads,a1,a2;
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,7 @@ public class Trophies extends AppCompatActivity {
         findViewById(R.id.imageViewQuizOption).setOnClickListener(view -> finish());
         SharedPreferences save = getSharedPreferences("Save",MODE_PRIVATE);
         final int level = save.getInt("Level", 1);
+        final int level2 = save.getInt("Level2",1);
 
         v11 = findViewById(R.id.v11);v12 = findViewById(R.id.v12);v13 = findViewById(R.id.v13);v14 = findViewById(R.id.v14);
         v21 = findViewById(R.id.v21);v22 = findViewById(R.id.v22);v23 = findViewById(R.id.v23);v24 = findViewById(R.id.v24);
@@ -45,12 +46,14 @@ public class Trophies extends AppCompatActivity {
         FirstHelp = findViewById(R.id.imageView12);
         Balance = findViewById(R.id.imageView13);
         a1 = findViewById(R.id.korona1);
+        a2 = findViewById(R.id.korona2);
         ProgressBar progressBar = findViewById(R.id.progressBar2);
         CardView cvTrafficSigns = findViewById(R.id.cvTrafficSigns);
         CardView cvCrossroads = findViewById(R.id.cvCrossroads);
         CardView cvFirstHelp = findViewById(R.id.cvFirst_help);
         CardView cvBalance = findViewById(R.id.cvLaw);
         TextView textView1 = findViewById(R.id.textView3);
+        TextView textView2 = findViewById(R.id.textView4);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference Traffic_Signs68 = database.getReference("Traffic Signs");
         DatabaseReference Crossroads69 = database.getReference("Crossroads");
@@ -114,8 +117,11 @@ public class Trophies extends AppCompatActivity {
         cvCrossroads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (level2 >= 5){
+                Toast.makeText(Trophies.this, "Поздравляю вы прошли тест Перекресток", Toast.LENGTH_SHORT).show();
+            }else {
                 Toast.makeText(Trophies.this, "Пройдите тесты, чтобы получить трофеи", Toast.LENGTH_SHORT).show();
-            }
+            }}
         });
         cvFirstHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,5 +165,33 @@ public class Trophies extends AppCompatActivity {
                     .into(a1);
         }
 
+        if (level2 >= 2) {
+            v21.setBackgroundResource(R.color.bg_color);
+            TV2.setTextColor(getResources().getColor(R.color.bg_color));
+            TV2.setText("25%");
+        }
+        if (level2 >= 3) {
+            v22.setBackgroundResource(R.color.bg_color);
+            TV2.setTextColor(getResources().getColor(R.color.bg_color));
+            TV2.setText("50%");
+        }
+        if (level2 >= 4) {
+            v23.setBackgroundResource(R.color.bg_color);
+            TV2.setTextColor(getResources().getColor(R.color.bg_color));
+            TV2.setText("75%");
+        }
+        if (level2 >= 5) {
+            v21.setBackgroundResource(R.color.white);
+            v22.setBackgroundResource(R.color.white);
+            v23.setBackgroundResource(R.color.white);
+            v24.setBackgroundResource(R.color.white);
+            TV2.setText("100%");
+            TV2.setTextColor(getResources().getColor(R.color.white));
+            textView2.setTextColor(getResources().getColor(R.color.white));
+            cvCrossroads.setBackgroundResource(R.color.Gold);
+            Picasso.get()
+                    .load("https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/a.png?alt=media&token=0f2496fb-d2ef-433e-a3de-f79d7c653e6c")
+                    .into(a2);
+        }
     }
 }

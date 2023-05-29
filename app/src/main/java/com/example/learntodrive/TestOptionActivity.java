@@ -118,7 +118,6 @@ public class TestOptionActivity extends AppCompatActivity {
         findViewById(R.id.imageViewQuizOption).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(TestOptionActivity.this,MainActivity.class));
                 finish();
             }
         });

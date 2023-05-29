@@ -120,11 +120,16 @@ public class TrafficSignsActivity extends AppCompatActivity {
         findViewById(R.id.imageViewQuizOption).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(TrafficSignsActivity.this,TestOptionActivity.class));
                 finish();
             }
         });
 
+        findViewById(R.id.refreshIcon).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
         cvLevel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

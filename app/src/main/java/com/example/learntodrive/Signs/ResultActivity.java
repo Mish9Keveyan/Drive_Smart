@@ -74,8 +74,7 @@ public class ResultActivity extends AppCompatActivity {
                 editor.putInt("Level", 2);
                 editor.commit();
             }
-            startActivity(new Intent(ResultActivity.this, TrafficSignsActivity.class));
-            finish();
+            super.onBackPressed();
         }
         if (level != null && level.equals("second")) {
             SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
@@ -85,8 +84,7 @@ public class ResultActivity extends AppCompatActivity {
                 editor.putInt("Level", 3);
                 editor.commit();
             }
-            startActivity(new Intent(ResultActivity.this, TrafficSignsActivity.class));
-            finish();
+            super.onBackPressed();
         }
         if (level != null && level.equals("third")) {
             SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
@@ -96,8 +94,7 @@ public class ResultActivity extends AppCompatActivity {
                 editor.putInt("Level", 4);
                 editor.commit();
             }
-            startActivity(new Intent(ResultActivity.this, TrafficSignsActivity.class));
-            finish();
+            super.onBackPressed();
         }
         if (level != null && level.equals("fourth")) {
             SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
@@ -107,8 +104,7 @@ public class ResultActivity extends AppCompatActivity {
                 editor.putInt("Level", 5);
                 editor.commit();
             }
-            startActivity(new Intent(ResultActivity.this, TrafficSignsActivity.class));
-            finish();
+            super.onBackPressed();
         }
     }
 }
