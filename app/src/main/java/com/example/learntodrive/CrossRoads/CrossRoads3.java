@@ -37,8 +37,8 @@ public class CrossRoads3 extends AppCompatActivity {
     private TextView mQuestionView;
     private TextView mTestNumView;
 
-    private Questions2 Questions12 = new Questions2();
-    String Coorectanswers12;
+    private Questions2 Questions13 = new Questions2();
+    String Coorectanswers13;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +65,9 @@ public class CrossRoads3 extends AppCompatActivity {
                     }
                 }
                 if (isAnyRadioButtonNotEmpty) {
-                    if (Questions12.getType12(QuestionNum) == "radiobutton") {
+                    if (Questions13.getType13(QuestionNum) == "radiobutton") {
                         next.setVisibility(View.GONE);
-                        if (Questions12.getCoorectAnswers12(QuestionNum).equals(mAnswer)) {
+                        if (Questions13.getCoorectAnswers13(QuestionNum).equals(mAnswer)) {
                             mScore++;
                         }
                     }
@@ -75,11 +75,11 @@ public class CrossRoads3 extends AppCompatActivity {
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            if (QuestionNum == Questions12.getLenght12() - 1) {
+                            if (QuestionNum == Questions13.getLenght13() - 1) {
                                 Intent intent_result = new Intent(CrossRoads3.this, Result2.class);
-                                intent_result.putExtra("totalQuestions", Questions12.getLenght12());
+                                intent_result.putExtra("totalQuestions", Questions13.getLenght13());
                                 intent_result.putExtra("finalScore", mScore);
-                                intent_result.putExtra("level2", "second1");
+                                intent_result.putExtra("level2", "third1");
                                 startActivity(intent_result);
                                 QuestionNum = 0;
                                 mScore = 0;
@@ -122,10 +122,10 @@ public class CrossRoads3 extends AppCompatActivity {
         mAnswer = "";
         findViewById(R.id.button_next).setBackgroundColor(findViewById(R.id.button_next).getContext().getResources().getColor(R.color.bg_color));
 
-        mTestNumView.setText(mTestNum + "/" + String.valueOf(Questions12.getLenght12()));
-        mQuestionView.setText(Questions12.getQuestions12(QuestionNum));
+        mTestNumView.setText(mTestNum + "/" + String.valueOf(Questions13.getLenght13()));
+        mQuestionView.setText(Questions13.getQuestions13(QuestionNum));
 
-        if (Questions12.getType12(QuestionNum).equals("radiobutton")) {
+        if (Questions13.getType13(QuestionNum).equals("radiobutton")) {
             findViewById(R.id.button_next).setVisibility(View.VISIBLE);
             showRadioButtonAnswers(QuestionNum);
         }
@@ -136,12 +136,12 @@ public class CrossRoads3 extends AppCompatActivity {
     private void showMainImage() {
         mTestImage = findViewById(R.id.question_image);
 
-        String imgUrl = Questions12.getImages12(QuestionNum);
+        String imgUrl = Questions13.getImages13(QuestionNum);
 
         Picasso.get().load(imgUrl).into(mTestImage);
     }
 
-    private void showRadioButtonAnswers(int wnum) {
+    private void showRadioButtonAnswers(int anum) {
         final LinearLayout answerLayout = findViewById(R.id.answers_layout);
 
         RadioGroup rg = new RadioGroup(this);
@@ -164,12 +164,13 @@ public class CrossRoads3 extends AppCompatActivity {
 
         rb1[0] = new RadioButton(this);
         rb1[1] = new RadioButton(this);
+        rb1[2] = new RadioButton(this);
 
         for (int i = 0; i <= 2; i++) {
-            rb1[i].setText(Questions12.getChoice12(wnum)[i]);
+            rb1[i].setText(Questions13.getChoice13(anum)[i]);
             rb1[i].setTextColor(Color.BLACK);
-            rb1[i].setPadding(10, 75, 8, 75);
-            rb1[i].setTextSize(19);
+            rb1[i].setPadding(10, 70, 8, 70);
+            rb1[i].setTextSize(18);
             rb1[i].setId(i);
             rb1[i].setWidth(1000);
             rg.addView(rb1[i]);
@@ -179,7 +180,7 @@ public class CrossRoads3 extends AppCompatActivity {
             lineView.setLayoutParams(lineParams);
             rg.addView(lineView);
 
-            if (Questions12.getCoorectAnswers12(wnum).equals(Questions12.getChoice12(wnum)[i])) {
+            if (Questions13.getCoorectAnswers13(anum).equals(Questions13.getChoice13(anum)[i])) {
                 correctAnswerIndex = i;
             }
         }
@@ -187,7 +188,7 @@ public class CrossRoads3 extends AppCompatActivity {
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int Id) {
-                mAnswer = Questions12.getChoice12(QuestionNum)[Id];
+                mAnswer = Questions13.getChoice13(QuestionNum)[Id];
                 displayCorrectAnswer();
             }
         });
@@ -204,7 +205,7 @@ public class CrossRoads3 extends AppCompatActivity {
             @Override
             public void run() {
                 for (int i = 0; i < rb1.length; i++) {
-                    if (Questions12.getCoorectAnswers12(QuestionNum).equals(rb1[i].getText())) {
+                    if (Questions13.getCoorectAnswers13(QuestionNum).equals(rb1[i].getText())) {
                         rb1[i].setButtonTintList(ColorStateList.valueOf(Color.GREEN));
                         if (rb1[i].isChecked()) {
                             displayToastCorrectAnswer();

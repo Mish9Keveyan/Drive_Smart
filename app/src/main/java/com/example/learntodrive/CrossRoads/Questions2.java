@@ -27,8 +27,28 @@ public class Questions2 {
             "Транспортные средства проедут перекресток в следующей последовательности:"
     };
     private String Questions13[] = {
+            "Перекресток вторым проедет:",
+            "Перекресток вторым проедет:",
+            "Какой автомобиль последним проедет перекресток?",
+            "Перекресток первым проедет:",
+            "Укажите очередность проезда перекрестка:",
+            "Перекресток последним проедет:",
+            "Перекресток вторым проедет:",
+            "Автомобили проедут перекресток в следующем порядке:",
+            "В данной ситуации необходимо уступить:",
+            "При движении прямо следует уступить:"
     };
     private String Questions14[] = {
+            "Перекресток первым проедет:",
+            "Перекресток последним проедет:",
+            "Перекресток третьим проедет:",
+            "Перекресток третьим проедет:",
+            "Транспортные средства проедут перекресток в следующей последовательности:",
+            "Желтый автомобиль проедет перекресток:",
+            "В данной ситуации при проезде перекрестка:",
+            "При повороте налево мы обязаны уступить дорогу:",
+            "При проезде перекрестка мы обязаны уступить:",
+            "В данной ситуации Вы должны уступить дорогу:"
     };
 
     private String Choice11[][] = {
@@ -56,8 +76,28 @@ public class Questions2 {
             {"Грузовой автомобиль и автобус, мотоцикл, троллейбус.","Грузовой автомобиль и мотоцикл, автобус, троллейбус."}
     };
     private String Choice13[][] = {
+            {"Трамвай.","Красный автомобиль.","Синий автомобиль."},
+            {"Белый автомобиль одновременно с желтым.","Красный автомобиль.","Зеленый автомобиль."},
+            {"Синий.","Красный.","Зеленый."},
+            {"Красный автомобиль.","Зеленый автомобиль.","Синий автомобиль."},
+            {"Синий, красный одновременно с зеленым.","Красный, синий, зеленый.","Красный одновременно с зеленым, синий."},
+            {"Зеленый автомобиль.","Синий автомобиль.","Красный автомобиль."},
+            {"Зеленый автомобиль.","Красный автомобиль одновременно с синим.","Желтый автомобиль."},
+            {"Синий, зеленый, красный.","Зеленый, красный, синий.","Красный, синий, зеленый."},
+            {"Водителю грузового автомобиля.","Обоим водителям.","Водителю автобуса."},
+            {"Водителю легкового автомобиля.","Всем.","Никому."}
     };
     private String Choice14[][] = {
+            {"Красный автомобиль.","Синий автомобиль.","Зеленый автомобиль.","Желтый автомобиль."},
+            {"Синий автомобиль.","Зеленый автомобиль.","Желтый автомобиль.","Красный автомобиль."},
+            {"Желтый автомобиль.","Синий автомобиль.","Зеленый автомобиль.","Красный автомобиль."},
+            {"Желтый автомобиль.","Kрасный автомобиль.","Синий автомобиль.","Зеленый автомобиль."},
+            {"Легковой автомобиль, автобус, велосипед.","Автобус, велосипед, легковой автомобиль.","Автобус, легковой автомобиль, велосипед.","Велосипед, автобус, легковой автомобиль."},
+            {"Первым.","Вторым.","Третьим.","Последним."},
+            {"Имеем право проехать первыми.","Должны уступить водителю трамвая.","Должны уступить водителю грузового автомобиля.","Должны уступить всем водителям."},
+            {"Водителю легкового автомобиля.","Водителю автобуса.","Водителю мотоцикла.","Никому."},
+            {"Всем водителям.","Водителю мотоцикла.","Водителям мотоцикла и автобуса.","Водителям легкового автомобиля и автобуса."},
+            {"Только водителю трамвая.","Водителю легкового автомобиля.","Водителям легкового автомобиля и трамвая.","Всем водителям."}
     };
 
 
@@ -86,22 +126,42 @@ public class Questions2 {
             "Грузовой автомобиль и мотоцикл, автобус, троллейбус."
     };
     private String CoorectAnswers13[] = {
+            "Трамвай.",
+            "Красный автомобиль.",
+            "Красный.",
+            "Синий автомобиль.",
+            "Красный одновременно с зеленым, синий.",
+            "Зеленый автомобиль.",
+            "Красный автомобиль одновременно с синим.",
+            "Красный, синий, зеленый.",
+            "Обоим водителям.",
+            "Водителю легкового автомобиля."
     };
     private String CoorectAnswers14 [] = {
+            "Зеленый автомобиль.",
+            "Зеленый автомобиль.",
+            "Желтый автомобиль.",
+            "Синий автомобиль.",
+            "Велосипед, автобус, легковой автомобиль.",
+            "Последним.",
+            "Имеем право проехать первыми.",
+            "Никому.",
+            "Всем водителям.",
+            "Водителям легкового автомобиля и трамвая."
     };
 
 
     private String Images11[] = {
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2Ffirst.jpg?alt=media&token=5d0e7876-5b67-4752-a053-731a2de408a6",
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F2.png?alt=media&token=5a2a02a7-dcda-4635-8331-02f0a84dfcf8",
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F3.png?alt=media&token=9ab9652a-e393-49c9-b5ed-3955125cfedb",
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F4.png?alt=media&token=25caed75-e7b3-43c6-bc9e-1bea77b81891",
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F5.png?alt=media&token=397a408f-947d-49bd-9593-850e325f56c3",
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F6.png?alt=media&token=13c56361-190c-454f-8166-944eb36bdffd",
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F7.png?alt=media&token=8e8638ce-cf8a-4c5f-9947-9a5e57d150c7",
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F8.png?alt=media&token=7bbc13c7-2c14-45cd-8d5f-314dbdcc9e6a",
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F9.png?alt=media&token=433011ba-1e31-438b-83a1-ad8be0fd5e25",
-        "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F10.png?alt=media&token=75eae87f-b465-48d1-9ca5-4a8b5367f299"
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2Ffirst.jpg?alt=media&token=5d0e7876-5b67-4752-a053-731a2de408a6",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F2.png?alt=media&token=5a2a02a7-dcda-4635-8331-02f0a84dfcf8",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F3.png?alt=media&token=9ab9652a-e393-49c9-b5ed-3955125cfedb",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F4.png?alt=media&token=25caed75-e7b3-43c6-bc9e-1bea77b81891",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F5.png?alt=media&token=397a408f-947d-49bd-9593-850e325f56c3",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F6.png?alt=media&token=13c56361-190c-454f-8166-944eb36bdffd",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F7.png?alt=media&token=8e8638ce-cf8a-4c5f-9947-9a5e57d150c7",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F8.png?alt=media&token=7bbc13c7-2c14-45cd-8d5f-314dbdcc9e6a",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F9.png?alt=media&token=433011ba-1e31-438b-83a1-ad8be0fd5e25",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffirst%2F10.png?alt=media&token=75eae87f-b465-48d1-9ca5-4a8b5367f299"
     };
     private String Images12[] = {
             "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fsecond%2F1.png?alt=media&token=426dcff7-67d1-4b31-9eef-cf550f14fe3e",
@@ -116,8 +176,28 @@ public class Questions2 {
             "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fsecond%2F10.png?alt=media&token=21cda1af-8f28-4ba5-a71d-9036f84dbfa0"
     };
     private String Images13[] = {
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F1.png?alt=media&token=e28c01f0-6846-42f4-9ce7-af7ba7ccbcf1",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F2.png?alt=media&token=ccc57645-bd61-494a-b18a-72646ceb1efa",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F3.png?alt=media&token=488dd9a8-e183-4ec8-a991-97a87f8d7f16",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F4.png?alt=media&token=02879c37-d7b3-47c9-8f40-abac3e35f727",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F5.png?alt=media&token=3fe8a3f2-2329-483c-a758-c24759d18ec4",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F6.png?alt=media&token=d668bf7a-56f5-4d38-947b-05b8635e21be",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F7.png?alt=media&token=65d24977-1160-4cd7-ae87-42b5985b0f26",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F8.png?alt=media&token=e26a3964-d04f-4f5c-b237-6271c1eb3dd5",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F9.png?alt=media&token=b348a98e-1e2b-4ca2-84ee-e6155be5d6e9",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Fthird%2F10.png?alt=media&token=961c37e3-bf3b-42bb-8184-d8106721e221"
     };
     private String Images14[] = {
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F1.png?alt=media&token=51aca26d-7698-4e8a-9f9a-c9676a0246eb",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F2.png?alt=media&token=0b661340-b4b3-4d92-a113-670f81971dd8",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F3.png?alt=media&token=95d6835c-59ab-474a-9dcf-b8f6c6591fa0",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F4.png?alt=media&token=148e3d87-b4cd-4ca0-9804-34e7e2afacb9",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F5.png?alt=media&token=388a955e-450b-4ef9-b55b-bf2ea49f8575",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F6.png?alt=media&token=1d1512b8-a5a6-4955-a7de-e3e08b78de4b",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F7.png?alt=media&token=0f5c660d-39d1-4eff-8a6a-8c30dd56b139",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F8.png?alt=media&token=22703593-8600-4ce3-b921-259682253c01",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F9.png?alt=media&token=d536b4f1-41c7-400f-a36e-b8b3dfab6f1f",
+            "https://firebasestorage.googleapis.com/v0/b/drive-smart-b1101.appspot.com/o/Crossroads%2Ffourth%2F10.png?alt=media&token=20138538-06d8-4533-b0c5-c70386ce925f"
     };
 
 
@@ -146,8 +226,28 @@ public class Questions2 {
             "radiobutton"
     };
     private String QuestionsType13[] = {
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton"
     };
     private String QuestionsType14[] = {
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton",
+            "radiobutton"
     };
 
 
