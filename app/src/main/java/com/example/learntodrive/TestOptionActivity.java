@@ -4,13 +4,11 @@ package com.example.learntodrive;
 import static java.lang.Thread.sleep;
 
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,21 +16,14 @@ import androidx.cardview.widget.CardView;
 
 import com.example.learntodrive.CrossRoads.CrossRoadsActivity;
 import com.example.learntodrive.Signs.TrafficSignsActivity;
-import com.google.api.Http;
+import com.example.learntodrive.law.LawActivity;
+import com.example.learntodrive.safeDrive.SafeDriveActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class TestOptionActivity extends AppCompatActivity {
     ImageView TrafficSigns;
@@ -72,6 +63,7 @@ public class TestOptionActivity extends AppCompatActivity {
                     Picasso.get().load(value).into(TrafficSigns);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -98,7 +90,6 @@ public class TestOptionActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
         Balance71.addValueEventListener(new ValueEventListener() {
@@ -110,7 +101,6 @@ public class TestOptionActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
@@ -130,7 +120,20 @@ public class TestOptionActivity extends AppCompatActivity {
         cvCrossRoads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(TestOptionActivity.this, CrossRoadsActivity.class));}
+                startActivity(new Intent(TestOptionActivity.this, CrossRoadsActivity.class));
+            }
+        });
+        cvFirstHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestOptionActivity.this, SafeDriveActivity.class));
+            }
+        });
+        cvLaw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TestOptionActivity.this, LawActivity.class));
+            }
         });
     }
 }

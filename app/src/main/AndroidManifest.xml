@@ -17,6 +17,10 @@
         android:theme="@style/Theme.LearnToDrive"
         tools:targetApi="31">
         <activity
+            android:name=".safeDrive.SafeDriveActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".CrossRoads.CrossRoads1"
             android:exported="false"
             android:screenOrientation="portrait" />
@@ -27,7 +31,7 @@
         <activity
             android:name=".CrossRoads.CrossRoads3"
             android:exported="false"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CrossRoads.CrossRoads4"
             android:exported="false"
@@ -75,6 +79,18 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".safeDrive.Result3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".law.Result4"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".law.LawActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".TestOptionActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -98,6 +114,38 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CrossRoads.CrossRoadsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".safeDrive.SafeDrive1"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".safeDrive.SafeDrive2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".safeDrive.SafeDrive3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".safeDrive.SafeDrive4"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".law.Law1"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".law.Law2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".law.Law3"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".law.Law4"
             android:exported="false"
             android:screenOrientation="portrait" />
     </application>

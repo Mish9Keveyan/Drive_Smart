@@ -241,6 +241,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
+
             <TextView
                 android:id="@+id/TV3"
                 android:layout_width="wrap_content"
@@ -292,6 +294,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/korona3"
+                android:layout_width ="49dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/textView5"
                 style="@style/categoryHeadingTextStyle"
@@ -330,7 +340,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/korona4"
+                android:layout_width ="52dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
+                android:id="@+id/textView6"
                 style="@style/categoryHeadingTextStyle"
                 android:layout_width="200sp"
                 android:layout_height="wrap_content"
