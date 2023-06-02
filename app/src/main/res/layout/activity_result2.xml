@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".Signs.ResultActivity">
 
-
     <LinearLayout
+        android:id="@+id/content_layout"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -21,8 +21,7 @@
             android:paddingTop="80dp"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:text="Ваш  Результат"
-            />
+            android:text="Ваш Результат" />
 
         <TextView
             android:id="@+id/percent_textview"
@@ -33,8 +32,16 @@
             android:padding="70dp"
             android:paddingTop="100dp"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/uwu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/correct_textview"
@@ -42,38 +49,40 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:gravity="center"
-            android:paddingTop="50dp"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <Button
-        android:onClick="restartGame"
+        android:id="@+id/ktestam"
+        android:layout_above="@id/b1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:layout_marginTop="150dp"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        android:text="Повторить попытку"
-        android:padding="20dp"
-        android:paddingTop="30dp"
-        android:background="@drawable/bg_btn"/>
-    <Button
+        android:layout_marginBottom="20dp"
         android:onClick="goToMenu"
+        android:padding="20dp"
+        android:text="вернуться к тестам"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:layout_margin="25dp"
-        android:text="вернуться к тестам"
-        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="45dp"
+        android:onClick="restartGame"
         android:padding="20dp"
-        android:background="@drawable/bg_btn"/>
+        android:paddingTop="30dp"
+        android:text="Повторить попытку"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-
-</LinearLayout>
+</RelativeLayout>

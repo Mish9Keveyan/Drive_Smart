@@ -28,7 +28,7 @@ import com.squareup.picasso.Picasso;
 
 public class SafeDrive1 extends AppCompatActivity {
 
-    final RadioButton[] rb1 = new RadioButton[2];
+    final RadioButton[] rb1 = new RadioButton[3];
     private ImageView mTestImage;
 
     private String mAnswer;
@@ -152,7 +152,7 @@ public class SafeDrive1 extends AppCompatActivity {
         topLineView.setLayoutParams(topLineParams);
         rg.addView(topLineView, 0);
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i <= 2; i++) {
             rb1[i] = new RadioButton(this);
             rb1[i].setText(Questions11.getChoice11(qnum)[i]);
             rb1[i].setTextColor(Color.BLACK);

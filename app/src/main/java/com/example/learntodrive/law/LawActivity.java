@@ -122,16 +122,11 @@ public class LawActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.refreshIcon).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recreate();
-            }
-        });
         cvLevel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LawActivity.this, Law1.class));
+                finish();
             }
         });
         //Levels logic start
@@ -155,6 +150,7 @@ public class LawActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 2) {
                     startActivity(new Intent(LawActivity.this, Law2.class));
+                    finish();
                 } else {
                     Toast.makeText(LawActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }
@@ -165,6 +161,7 @@ public class LawActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 3) {
                     startActivity(new Intent(LawActivity.this, Law3.class));
+                    finish();
                 } else {
                     Toast.makeText(LawActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }
@@ -175,6 +172,7 @@ public class LawActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 4) {
                     startActivity(new Intent(LawActivity.this, Law4.class));
+                    finish();
                 } else {
                     Toast.makeText(LawActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }

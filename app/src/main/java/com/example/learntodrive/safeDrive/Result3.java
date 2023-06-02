@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.learntodrive.MainActivity;
@@ -17,6 +18,8 @@ import com.example.learntodrive.Signs.FourthLevelActivity;
 import com.example.learntodrive.Signs.ResultActivity;
 import com.example.learntodrive.Signs.SecondLevelActivity;
 import com.example.learntodrive.Signs.ThirdLevelActivity;
+import com.example.learntodrive.TestOptionActivity;
+import com.example.learntodrive.law.Result4;
 
 public class Result3 extends AppCompatActivity {
 
@@ -34,6 +37,9 @@ public class Result3 extends AppCompatActivity {
 
         txtCorrectText = findViewById(R.id.correct_textview);
         txtPercentText = findViewById(R.id.percent_textview);
+        TextView uwu = findViewById(R.id.uwu);
+        Button res = findViewById(R.id.b1);
+        Button menu = findViewById(R.id.ktestam);
 
         Intent intent = getIntent();
         totalQuestions = intent.getIntExtra("totalQuestions",0);
@@ -46,7 +52,13 @@ public class Result3 extends AppCompatActivity {
         @SuppressLint("StringFormatMatches") String final_Score_Text = getString(R.string.txtCorrectScore,finalScore,totalQuestions);
 
         txtCorrectText.setText(final_Score_Text);
-
+        if (PercentScore2 > 69){
+            menu.setBackgroundColor(getResources().getColor(R.color.Right));
+            uwu.setText("Поздравляю, вы прошли!");
+        }else {
+            res.setBackgroundColor(getResources().getColor(R.color.Incorrect));
+            uwu.setText("Вы не прошли тестирование");
+        }
     }
 
 
@@ -105,6 +117,7 @@ public class Result3 extends AppCompatActivity {
                 editor.apply();
             }
         }
+        startActivity(new Intent(Result3.this, TestOptionActivity.class));
         finish();
     }
 }

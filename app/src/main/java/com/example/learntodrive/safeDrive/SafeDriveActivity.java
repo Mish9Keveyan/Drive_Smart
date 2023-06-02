@@ -128,16 +128,11 @@ public class SafeDriveActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.refreshIcon).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recreate();
-            }
-        });
         cvLevel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(SafeDriveActivity.this, SafeDrive1.class));
+                finish();
             }
         });
         //Levels logic start
@@ -161,6 +156,7 @@ public class SafeDriveActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 2) {
                     startActivity(new Intent(SafeDriveActivity.this, SafeDrive2.class));
+                    finish();
                 } else {
                     Toast.makeText(SafeDriveActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }
@@ -171,6 +167,7 @@ public class SafeDriveActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 3) {
                     startActivity(new Intent(SafeDriveActivity.this, SafeDrive3.class));
+                    finish();
                 } else {
                     Toast.makeText(SafeDriveActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }
@@ -181,6 +178,7 @@ public class SafeDriveActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 4) {
                     startActivity(new Intent(SafeDriveActivity.this, SafeDrive4.class));
+                    finish();
                 } else {
                     Toast.makeText(SafeDriveActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }

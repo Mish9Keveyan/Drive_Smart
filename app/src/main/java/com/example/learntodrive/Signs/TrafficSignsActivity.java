@@ -124,16 +124,11 @@ public class TrafficSignsActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.refreshIcon).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recreate();
-            }
-        });
         cvLevel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                     startActivity(new Intent(TrafficSignsActivity.this, FirstLevelActivity.class));
+                    finish();
             }
         });
         //Levels logic start
@@ -157,6 +152,7 @@ public class TrafficSignsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 2) {
                     startActivity(new Intent(TrafficSignsActivity.this, SecondLevelActivity.class));
+                    finish();
                 } else {
                     Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }
@@ -167,6 +163,7 @@ public class TrafficSignsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 3) {
                     startActivity(new Intent(TrafficSignsActivity.this, ThirdLevelActivity.class));
+                    finish();
                 } else {
                     Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }
@@ -177,6 +174,7 @@ public class TrafficSignsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 4) {
                     startActivity(new Intent(TrafficSignsActivity.this, FourthLevelActivity.class));
+                    finish();
                 } else {
                     Toast.makeText(TrafficSignsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }

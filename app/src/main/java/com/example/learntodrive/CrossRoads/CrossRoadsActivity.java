@@ -121,16 +121,11 @@ public class CrossRoadsActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.refreshIcon).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recreate();
-            }
-        });
         cvLevel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CrossRoadsActivity.this, CrossRoads1.class));
+                finish();
             }
         });
         //Levels logic start
@@ -154,6 +149,7 @@ public class CrossRoadsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 2) {
                     startActivity(new Intent(CrossRoadsActivity.this, CrossRoads2.class));
+                    finish();
                 } else {
                     Toast.makeText(CrossRoadsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }
@@ -164,6 +160,7 @@ public class CrossRoadsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 3) {
                     startActivity(new Intent(CrossRoadsActivity.this, CrossRoads3.class));
+                    finish();
                 } else {
                     Toast.makeText(CrossRoadsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }
@@ -174,6 +171,7 @@ public class CrossRoadsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (level >= 4) {
                     startActivity(new Intent(CrossRoadsActivity.this, CrossRoads4.class));
+                    finish();
                 } else {
                     Toast.makeText(CrossRoadsActivity.this, "Пока недоступно", Toast.LENGTH_SHORT).show();
                 }

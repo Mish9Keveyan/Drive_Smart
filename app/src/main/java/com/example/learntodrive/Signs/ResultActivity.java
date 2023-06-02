@@ -8,10 +8,13 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.learntodrive.MainActivity;
 import com.example.learntodrive.R;
+import com.example.learntodrive.TestOptionActivity;
+import com.example.learntodrive.law.Result4;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -29,6 +32,9 @@ public class ResultActivity extends AppCompatActivity {
 
         txtCorrectText = findViewById(R.id.correct_textview);
         txtPercentText = findViewById(R.id.percent_textview);
+        TextView uwu = findViewById(R.id.uwu);
+        Button res = findViewById(R.id.b1);
+        Button menu = findViewById(R.id.ktestam);
 
         Intent intent = getIntent();
         totalQuestions = intent.getIntExtra("totalQuestions",0);
@@ -42,6 +48,13 @@ public class ResultActivity extends AppCompatActivity {
 
         txtCorrectText.setText(final_Score_Text);
 
+        if (PercentScore1 > 69){
+            menu.setBackgroundColor(getResources().getColor(R.color.Right));
+            uwu.setText("Поздравляю, вы прошли!");
+        }else {
+            res.setBackgroundColor(getResources().getColor(R.color.Incorrect));
+            uwu.setText("Вы не прошли тестирование");
+        }
     }
 
 
@@ -74,7 +87,8 @@ public class ResultActivity extends AppCompatActivity {
                 editor.putInt("Level", 2);
                 editor.commit();
             }
-            super.onBackPressed();
+            startActivity(new Intent(ResultActivity.this, TestOptionActivity.class));
+            finish();
         }
         if (level != null && level.equals("second")) {
             SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
@@ -84,7 +98,8 @@ public class ResultActivity extends AppCompatActivity {
                 editor.putInt("Level", 3);
                 editor.commit();
             }
-            super.onBackPressed();
+            startActivity(new Intent(ResultActivity.this, TestOptionActivity.class));
+            finish();
         }
         if (level != null && level.equals("third")) {
             SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
@@ -94,7 +109,8 @@ public class ResultActivity extends AppCompatActivity {
                 editor.putInt("Level", 4);
                 editor.commit();
             }
-            super.onBackPressed();
+            startActivity(new Intent(ResultActivity.this, TestOptionActivity.class));
+            finish();
         }
         if (level != null && level.equals("fourth")) {
             SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
@@ -104,7 +120,8 @@ public class ResultActivity extends AppCompatActivity {
                 editor.putInt("Level", 5);
                 editor.commit();
             }
-            super.onBackPressed();
+            startActivity(new Intent(ResultActivity.this, TestOptionActivity.class));
+            finish();
         }
     }
 }
