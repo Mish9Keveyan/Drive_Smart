@@ -38,7 +38,6 @@ public class SecondLevelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signs_1);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         nQuestionView = findViewById(R.id.question_textview);
@@ -152,7 +151,7 @@ public class SecondLevelActivity extends AppCompatActivity {
             rb2[i].setPadding(10,70,8,70);
             rb2[i].setTextSize(16);
             rb2[i].setId(i);
-            rb2[i].setWidth(1000);
+            rb2[i].setWidth(4000);
             rg.addView(rb2[i]);
             View lineView = new View(this);
             lineView.setBackgroundColor(Color.BLACK);

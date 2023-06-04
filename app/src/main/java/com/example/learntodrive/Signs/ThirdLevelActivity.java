@@ -38,7 +38,6 @@ public class ThirdLevelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signs_1);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         bQuestionView = findViewById(R.id.question_textview);
@@ -152,7 +151,7 @@ public class ThirdLevelActivity extends AppCompatActivity {
             rb3[i].setPadding(10,70,8,70);
             rb3[i].setTextSize(16);
             rb3[i].setId(i);
-            rb3[i].setWidth(1000);
+            rb3[i].setWidth(4000);
             rg.addView(rb3[i]);
             View lineView = new View(this);
             lineView.setBackgroundColor(Color.BLACK);

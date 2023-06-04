@@ -45,7 +45,6 @@ public class FourthLevelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signs_1);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -171,7 +170,7 @@ public class FourthLevelActivity extends AppCompatActivity {
             rb4[i].setPadding(10,100,8,100);
             rb4[i].setTextSize(19);
             rb4[i].setId(i);
-            rb4[i].setWidth(1000);
+            rb4[i].setWidth(4000);
             rg.addView(rb4[i]);
             View lineView = new View(this);
             lineView.setBackgroundColor(Color.BLACK);

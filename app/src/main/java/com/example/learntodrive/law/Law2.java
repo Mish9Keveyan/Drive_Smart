@@ -44,7 +44,6 @@ public class Law2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_for_last_2_levels);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -161,7 +160,7 @@ public class Law2 extends AppCompatActivity {
             rb1[i].setPadding(10, 75, 8, 75);
             rb1[i].setTextSize(20);
             rb1[i].setId(i);
-            rb1[i].setWidth(1000);
+            rb1[i].setWidth(4000);
             rg.addView(rb1[i]);
             View lineView = new View(this);
             lineView.setBackgroundColor(Color.BLACK);

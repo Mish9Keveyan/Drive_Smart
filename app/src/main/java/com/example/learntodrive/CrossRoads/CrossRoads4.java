@@ -44,7 +44,6 @@ public class CrossRoads4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cross_roads1);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -173,7 +172,7 @@ public class CrossRoads4 extends AppCompatActivity {
             rb1[i].setPadding(10, 60, 8, 60);
             rb1[i].setTextSize(17);
             rb1[i].setId(i);
-            rb1[i].setWidth(1000);
+            rb1[i].setWidth(4000);
             rg.addView(rb1[i]);
             View lineView = new View(this);
             lineView.setBackgroundColor(Color.BLACK);
